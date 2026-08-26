@@ -308,8 +308,10 @@ const skillGroups = [
 function SectionHeading({ number, eyebrow, title }: { number: string; eyebrow: string; title: string }) {
   return (
     <div className="section-heading reveal">
-      <span className="section-heading__number">{number}</span>
-      <p className="section-heading__eyebrow">{eyebrow}</p>
+      <div className="section-heading__meta">
+        <span className="section-heading__number">{number}</span>
+        <p className="section-heading__eyebrow">{eyebrow}</p>
+      </div>
       <h2>{title}</h2>
     </div>
   )
