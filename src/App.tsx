@@ -477,7 +477,7 @@ function App() {
             <div className="credential reveal">
               <p className="credential__label">Kontribusi</p>
               <h3>Inovasi Teknologi Pendidikan Indonesia</h3>
-              <p>Okt 2025–Sekarang</p>
+              <p>Okt 2025–Februari 2026</p>
               <p>Pengembangan aplikasi digital dan pengelolaan e-learning.</p>
             </div>
           </div>
