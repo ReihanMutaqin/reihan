@@ -326,19 +326,27 @@ function TelegramIcon({ size = 18 }: { size?: number }) {
 }
 
 function RealTimeClock() {
-  const [time, setTime] = useState<string>('')
+  const [time, setTime] = useState<{ hours: string; minutes: string; seconds: string }>({
+    hours: '',
+    minutes: '',
+    seconds: '',
+  })
   const [dateStr, setDateStr] = useState<string>('')
 
   useEffect(() => {
     const updateTime = () => {
       const now = new Date()
-      const timeFormatted = now.toLocaleTimeString('id-ID', {
+      const options: Intl.DateTimeFormatOptions = {
         hour12: false,
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
         timeZone: 'Asia/Jakarta',
-      })
+      }
+      const parts = new Intl.DateTimeFormat('id-ID', options).formatToParts(now)
+      const hours = parts.find((p) => p.type === 'hour')?.value || ''
+      const minutes = parts.find((p) => p.type === 'minute')?.value || ''
+      const seconds = parts.find((p) => p.type === 'second')?.value || ''
       const dateFormatted = now.toLocaleDateString('id-ID', {
         weekday: 'short',
         day: 'numeric',
@@ -346,7 +354,7 @@ function RealTimeClock() {
         year: 'numeric',
         timeZone: 'Asia/Jakarta',
       })
-      setTime(timeFormatted)
+      setTime({ hours, minutes, seconds })
       setDateStr(dateFormatted)
     }
 
@@ -355,7 +363,7 @@ function RealTimeClock() {
     return () => clearInterval(timer)
   }, [])
 
-  if (!time) {
+  if (!time.seconds) {
     return <span className="realtime-clock" aria-hidden="true">WIB · --:--:--</span>
   }
 
@@ -366,9 +374,13 @@ function RealTimeClock() {
         <span className="realtime-clock__dot" />
       </span>
       <span className="realtime-clock__zone">WIB</span>
-      <span className="realtime-clock__separator">·</span>
+      <span className="realtime-clock__sep">·</span>
       <span className="realtime-clock__digits">
-        <span className="realtime-clock__time">{time}</span>
+        <span key={`h-${time.hours}`} className="digit-fade">{time.hours}</span>
+        <span className="colon">:</span>
+        <span key={`m-${time.minutes}`} className="digit-fade">{time.minutes}</span>
+        <span className="colon">:</span>
+        <span key={`s-${time.seconds}`} className="digit-fade digit-fade--sec">{time.seconds}</span>
       </span>
     </div>
   )
