@@ -426,9 +426,12 @@ function App() {
       </a>
 
       <header className="topbar">
-        <a className="brand" href="#utama" aria-label="Kembali ke awal">
-          RM<span>.</span>
-        </a>
+        <div className="topbar__left">
+          <a className="brand" href="#utama" aria-label="Kembali ke awal">
+            RM<span>.</span>
+          </a>
+          <RealTimeClock />
+        </div>
 
         <nav className="desktop-nav" aria-label="Navigasi utama">
           {navigation.map((item) => (
@@ -473,7 +476,7 @@ function App() {
           <div className="hero__copy">
             <div className="hero__topline">
               <p>Portofolio / {new Date().getFullYear()}</p>
-              <RealTimeClock />
+              <p>Operasional TI · Software Dev</p>
             </div>
 
             <div className="hero__content reveal is-visible">
