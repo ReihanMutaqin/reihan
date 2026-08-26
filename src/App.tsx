@@ -325,6 +325,55 @@ function TelegramIcon({ size = 18 }: { size?: number }) {
   )
 }
 
+function RealTimeClock() {
+  const [time, setTime] = useState<string>('')
+  const [dateStr, setDateStr] = useState<string>('')
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date()
+      const timeFormatted = now.toLocaleTimeString('id-ID', {
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZone: 'Asia/Jakarta',
+      })
+      const dateFormatted = now.toLocaleDateString('id-ID', {
+        weekday: 'short',
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+        timeZone: 'Asia/Jakarta',
+      })
+      setTime(timeFormatted)
+      setDateStr(dateFormatted)
+    }
+
+    updateTime()
+    const timer = setInterval(updateTime, 1000)
+    return () => clearInterval(timer)
+  }, [])
+
+  if (!time) {
+    return <span className="realtime-clock" aria-hidden="true">WIB · --:--:--</span>
+  }
+
+  return (
+    <div className="realtime-clock" title={`Waktu Indonesia Barat (WIB / UTC+7) — ${dateStr}`}>
+      <span className="realtime-clock__indicator">
+        <span className="realtime-clock__ping" />
+        <span className="realtime-clock__dot" />
+      </span>
+      <span className="realtime-clock__zone">WIB</span>
+      <span className="realtime-clock__separator">·</span>
+      <span className="realtime-clock__digits">
+        <span className="realtime-clock__time">{time}</span>
+      </span>
+    </div>
+  )
+}
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -416,7 +465,7 @@ function App() {
           <div className="hero__copy">
             <div className="hero__topline">
               <p>Portofolio / 2026</p>
-              <p>Pandeglang, Banten</p>
+              <RealTimeClock />
             </div>
 
             <div className="hero__content reveal is-visible">

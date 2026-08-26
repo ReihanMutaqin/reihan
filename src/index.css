@@ -210,6 +210,95 @@ ul {
   text-transform: uppercase;
 }
 
+.realtime-clock {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  box-shadow: 0 2px 8px rgba(21, 21, 21, 0.04);
+  transition: all 200ms ease;
+  user-select: none;
+}
+
+.realtime-clock:hover {
+  border-color: var(--orange);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(233, 93, 50, 0.12);
+}
+
+.realtime-clock__indicator {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 8px;
+  height: 8px;
+}
+
+.realtime-clock__dot {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+}
+
+.realtime-clock__ping {
+  position: absolute;
+  inset: -3px;
+  background: rgba(16, 185, 129, 0.45);
+  border-radius: 50%;
+  animation: clockPulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes clockPulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.95;
+  }
+  70% {
+    transform: scale(2.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.realtime-clock__zone {
+  font-weight: 850;
+  color: var(--orange);
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+}
+
+.realtime-clock__separator {
+  color: var(--muted);
+  opacity: 0.5;
+}
+
+.realtime-clock__digits {
+  display: inline-flex;
+  align-items: center;
+}
+
+.realtime-clock__time {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-variant-numeric: tabular-nums;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
 .hero__content {
   align-self: center;
   max-width: 900px;
