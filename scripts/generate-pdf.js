@@ -808,22 +808,6 @@ const htmlContent = `<!DOCTYPE html>
       </div>
     </div>
 
-    <!-- DOKUMENTASI KEGIATAN -->
-    <div class="section-title" style="margin-top: 6px;">
-      <span class="badge-num">Dokumentasi</span> Dokumentasi Pengajaran & Kepemimpinan
-    </div>
-
-    <div class="photo-activity-grid">
-      <div class="photo-card">
-        <img src="${photoSpeaking}" alt="Kegiatan Berbicara & Kepemimpinan">
-        <div class="photo-caption">Komunikasi, presentasi teknis, dan kepemimpinan dalam kegiatan akademik.</div>
-      </div>
-      <div class="photo-card">
-        <img src="${photoTeaching}" alt="Pengajaran di Kelas">
-        <div class="photo-caption">Pengajaran teknologi informasi, pendampingan praktikum siswa di ruang kelas.</div>
-      </div>
-    </div>
-
     <div class="page-number-footer">
       <span>Portofolio Reihan Mutaqin · Operasional TI, AI & Software Development</span>
       <span>Halaman 2 dari 6</span>

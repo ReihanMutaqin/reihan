@@ -480,17 +480,6 @@ function App() {
               <span>Skor TOEFL</span>
             </div>
           </div>
-
-          <div className="profile-photos reveal">
-            <figure className="profile-photo profile-photo--portrait">
-              <img src="/images/reihan-speaking.jpg" alt="Reihan berbicara dalam kegiatan kampus" />
-              <figcaption>Komunikasi dan kepemimpinan</figcaption>
-            </figure>
-            <figure className="profile-photo profile-photo--landscape">
-              <img src="/images/reihan-teaching.jpg" alt="Reihan mengajar di ruang kelas" />
-              <figcaption>Pengajaran teknologi di kelas</figcaption>
-            </figure>
-          </div>
         </section>
 
         <section id="pengalaman" className="section section--experience">

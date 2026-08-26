@@ -172,12 +172,18 @@ function topBar(slide, label, isDark = false) {
     });
   });
 
-  const sp = img('reihan-speaking.jpg');
-  const tp = img('reihan-teaching.jpg');
-  if (sp) slide.addImage({ data: sp, x: 0.4, y: 5.3, w: 3.8, h: 2.0, sizing: { type: 'cover', w: 3.8, h: 2.0 } });
-  if (tp) slide.addImage({ data: tp, x: 4.4, y: 5.3, w: 3.5, h: 2.0, sizing: { type: 'cover', w: 3.5, h: 2.0 } });
-  slide.addText('Komunikasi & Kepemimpinan', { x: 0.4, y: 7.1, w: 3.8, h: 0.3, fontSize: 8, color: C.muted, fontFace: F.body });
-  slide.addText('Pengajaran Teknologi di Kelas', { x: 4.4, y: 7.1, w: 3.5, h: 0.3, fontSize: 8, color: C.muted, fontFace: F.body });
+  const pillars = [
+    { title: 'Ketelitian Operasional', desc: 'Terbiasa menangani ribuan baris data, rekonsiliasi sistem UIM/WOC, dan otomasi alur kerja untuk akurasi optimal.' },
+    { title: 'Pengembangan Modern', desc: 'Membangun aplikasi digital responsif, interaktif, berbasis AI multi-model, computer vision, audio tools, dan cloud.' },
+    { title: 'Komunikasi & Edukasi', desc: 'Mampu menerjemahkan konsep teknis kompleks menjadi modul pembelajaran dan penjelasan yang mudah dipahami.' },
+  ];
+  pillars.forEach((p, i) => {
+    const px = 0.4 + i * 4.2;
+    slide.addShape(RECT, { x: px, y: 5.2, w: 3.9, h: 1.8, fill: { color: C.white }, line: { color: C.paperDk, pt: 1 } });
+    slide.addShape(RECT, { x: px, y: 5.2, w: 3.9, h: 0.04, fill: { color: C.orange } });
+    slide.addText(p.title, { x: px + 0.2, y: 5.4, w: 3.5, h: 0.35, fontSize: 11, bold: true, color: C.ink, fontFace: F.heading });
+    slide.addText(p.desc, { x: px + 0.2, y: 5.8, w: 3.5, h: 1.1, fontSize: 8.8, color: C.muted, fontFace: F.body, lineSpacingMultiple: 1.35 });
+  });
 
   addPageNum(slide, 2);
 }
