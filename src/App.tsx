@@ -123,7 +123,6 @@ const projects: Project[] = [
     tags: ['Web', 'E-learning', 'CMS'],
     image: '/images/urang-it.png',
     accent: '#a9b5c8',
-    link: 'https://e-learning.66ghz.com/',
   },
 ]
 
