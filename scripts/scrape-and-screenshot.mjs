@@ -17,7 +17,7 @@ const urls = [
   { id: 'metadata-reihan', url: 'https://metadata.reihan.online/', img: 'metadata-reihan.png' },
   { id: 'musik-reihan', url: 'https://musik.reihan.online/', img: 'musik-reihan.png' },
   { id: 'shl-mu', url: 'https://shl-mu.vercel.app/', img: 'shl-mu.png' },
-  { id: 'hr-rei219', url: 'https://hr-rei219.vercel.app/', img: 'hr-rei219.png' }
+  { id: 'hr-rei219', url: 'https://hr.reihan.online/', img: 'hr-rei219.png' }
 ];
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));

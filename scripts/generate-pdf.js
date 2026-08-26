@@ -1192,7 +1192,7 @@ const htmlContent = `<!DOCTYPE html>
               <span class="tech-pill">HRIS</span>
               <span class="tech-pill">Dashboard</span>
             </div>
-            <span class="project-link-badge">hr-rei219.vercel.app ↗</span>
+            <a href="https://hr.reihan.online/" class="project-link-badge">hr.reihan.online ↗</a>
           </div>
         </div>
       </div>

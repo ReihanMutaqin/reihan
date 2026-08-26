@@ -324,10 +324,10 @@ const projectSlideData = [
   },
   {
     slideNum: 8,
-    subtitle: 'Healthcare Enterprise & Digital Invitation',
+    subtitle: 'Healthcare Enterprise & HR Management System',
     projects: [
       { img: 'shl-mu.png', year: '2026', cat: 'Healthcare App', title: 'RS SHL — Sistem Absensi Digital', desc: 'Sistem absensi digital dan presensi pegawai Rumah Sakit SHL dengan verifikasi ID pegawai terenkripsi, alur check-in/check-out terstruktur, dan dashboard manajemen kehadiran.', tags: ['Enterprise App', 'Healthcare', 'Absensi Digital', 'Auth'], link: 'shl-mu.vercel.app' },
-      { img: 'shevaangel.png', year: '2026', cat: 'Digital Invitation', title: 'The Wedding of Sheva & Angel', desc: 'Platform undangan pernikahan digital interaktif dan responsif dengan buku tamu digital, amplop digital/rekening, reservasi kehadiran, background music, dan animasi interaktif.', tags: ['Digital Invitation', 'Interactive Web', 'UI/UX', 'Animation'], link: 'shevaangel.vercel.app' }
+      { img: 'hr-rei219.png', year: '2026', cat: 'HR Tech & Management', title: 'HR Portal & Management System', desc: 'Platform HRIS dan manajemen SDM modern dengan data karyawan terpusat, rekapitulasi absensi/kehadiran, pengajuan izin/cuti, dan reporting performa terpadu.', tags: ['HRIS', 'Enterprise Web', 'Dashboard', 'Management'], link: 'hr.reihan.online' }
     ]
   },
   {
@@ -348,10 +348,10 @@ const projectSlideData = [
   },
   {
     slideNum: 11,
-    subtitle: 'Web CMS, E-Commerce & HR System',
+    subtitle: 'Digital Invitation & Web CMS Portal',
     projects: [
-      { img: '42-berita-kita.png', year: '2024', cat: 'Portal Berita', title: '42 Berita Kita', desc: 'Portal berita web responsif dengan manajemen konten dinamis, sistem kategori multi-level, panel administrasi redaksi, dan integrasi database untuk publikasi artikel real-time.', tags: ['Web Fullstack', 'PHP / MySQL', 'CMS Dashboard', 'SEO Friendly'], link: 'berita.42web.io' },
-      { img: 'ecommerce.png', year: '2023', cat: 'Toko Online', title: 'Platform E-Commerce & Katalog Produk', desc: 'Sistem penjualan digital dengan katalog interaktif, filter kategori, keranjang belanja, checkout notifikasi WhatsApp, serta dashboard admin untuk pengelolaan stok dan pesanan.', tags: ['E-Commerce Engine', 'Cart & Checkout', 'Stock Management', 'UI/UX'] }
+      { img: 'shevaangel.png', year: '2026', cat: 'Digital Invitation', title: 'The Wedding of Sheva & Angel', desc: 'Platform undangan pernikahan digital interaktif dan responsif dengan buku tamu digital, amplop digital/rekening, reservasi kehadiran, background music, dan animasi interaktif.', tags: ['Digital Invitation', 'Interactive Web', 'UI/UX', 'Animation'], link: 'shevaangel.vercel.app' },
+      { img: '42-berita-kita.png', year: '2024', cat: 'Portal Berita', title: '42 Berita Kita', desc: 'Portal berita web responsif dengan manajemen konten dinamis, sistem kategori multi-level, panel administrasi redaksi, dan integrasi database untuk publikasi artikel real-time.', tags: ['Web Fullstack', 'PHP / MySQL', 'CMS Dashboard', 'SEO Friendly'], link: 'berita.42web.io' }
     ]
   }
 ];

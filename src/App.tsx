@@ -129,8 +129,8 @@ const projects: Project[] = [
       'Platform HRIS dan manajemen sumber daya manusia dengan modul data karyawan terpusat, rekapitulasi kehadiran, pengajuan izin/cuti terintegrasi, dan reporting SDM.',
     tags: ['HRIS', 'Enterprise Web', 'Dashboard', 'Management'],
     image: '/images/hr-rei219.png',
-    accent: '#6366f1',
-    link: 'https://hr-rei219.vercel.app/',
+    accent: '#4f46e5',
+    link: 'https://hr.reihan.online/',
   },
   {
     title: 'The Wedding of Sheva & Angel',
