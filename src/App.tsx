@@ -567,12 +567,13 @@ function App() {
               <h3>Universitas Bina Bangsa</h3>
               <p>Pendidikan Teknologi Informasi · 2020–2024</p>
               <p>IPK 3,96/4,00 · Lulusan Terbaik Program Studi 2024</p>
+              <p>TOEFL Pusat Bahasa Universitas Bina Bangsa · 550</p>
             </div>
             <div className="credential reveal">
               <p className="credential__label">Dasar teknis</p>
               <h3>SMKN 1 Pandeglang</h3>
               <p>Teknik Komputer dan Jaringan · 2017–2020</p>
-              <p>TOEFL Pusat Bahasa Universitas Bina Bangsa · 550</p>
+              <p>Kompetensi Kejuruan Hardware, Jaringan & Troubleshooting</p>
             </div>
             <div className="credential reveal">
               <p className="credential__label">Organisasi</p>

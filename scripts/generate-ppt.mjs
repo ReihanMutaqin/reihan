@@ -420,10 +420,10 @@ projectSlideData.forEach((ps) => {
   slide.addShape(RECT, { x: 0.4, y: 1.95, w: 12.5, h: 0.015, fill: { color: C.ink } });
 
   const creds = [
-    { label: 'Pendidikan Tinggi', title: 'Universitas Bina Bangsa', sub: 'S1 Pendidikan Teknologi Informasi · 2020–2024', highlight: '★ IPK 3,96 / 4,00 — Lulusan Terbaik Program Studi 2024', color: C.orange },
-    { label: 'Pendidikan Vokasi', title: 'SMKN 1 Pandeglang', sub: 'Teknik Komputer dan Jaringan (TKJ) · 2017–2020', highlight: '✓ Dasar kuat arsitektur komputer, jaringan & sistem operasi', color: C.ink },
+    { label: 'Pendidikan Tinggi & Bahasa', title: 'Universitas Bina Bangsa', sub: 'S1 Pendidikan Teknologi Informasi · 2020–2024', highlight: '★ IPK 3,96 / 4,00 (Lulusan Terbaik) · TOEFL Score 550', color: C.orange },
+    { label: 'Pendidikan Vokasi', title: 'SMKN 1 Pandeglang', sub: 'Teknik Komputer dan Jaringan (TKJ) · 2017–2020', highlight: '✓ Dasar kuat arsitektur komputer, hardware, jaringan & troubleshooting', color: C.ink },
     { label: 'Organisasi Kampus', title: 'Himpunan Mahasiswa PTI', sub: 'Wakil Ketua (2022–2023) · Ketua Divisi IT (2021–2022)', highlight: 'Memimpin tim teknis & workshop IT untuk 200+ peserta', color: C.ink },
-    { label: 'Kontribusi & Bahasa', title: 'Inovasi Teknologi Pendidikan ID & TOEFL', sub: 'Kontributor Aplikasi Digital (2025–2026)', highlight: 'TOEFL Score 550 · Kemahiran Bahasa Inggris Profesional', color: C.ink },
+    { label: 'Kontribusi Komunitas', title: 'Inovasi Teknologi Pendidikan ID', sub: 'Kontributor Aplikasi Digital (2025–2026)', highlight: 'Pengembangan aplikasi digital dan pengelolaan e-learning', color: C.ink },
   ];
 
   creds.forEach((c, i) => {

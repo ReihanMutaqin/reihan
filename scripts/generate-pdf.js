@@ -1249,17 +1249,17 @@ const htmlContent = `<!DOCTYPE html>
 
     <div class="edu-grid">
       <div class="edu-card">
-        <div class="edu-label">Pendidikan Tinggi</div>
+        <div class="edu-label">Pendidikan Tinggi & Kemahiran Bahasa</div>
         <div class="edu-title">Universitas Bina Bangsa</div>
         <div class="edu-sub">S1 Pendidikan Teknologi Informasi (2020 – 2024)</div>
-        <div class="edu-highlight">★ IPK 3,96 / 4,00 — Lulusan Terbaik Program Studi 2024</div>
+        <div class="edu-highlight">★ IPK 3,96 / 4,00 — Lulusan Terbaik Program Studi 2024<br>✓ TOEFL Pusat Bahasa Universitas Bina Bangsa · Skor 550</div>
       </div>
 
       <div class="edu-card">
-        <div class="edu-label">Pendidikan Vokasi & Kemahiran</div>
-        <div class="edu-title">SMKN 1 Pandeglang & TOEFL</div>
-        <div class="edu-sub">TKJ (2017–2020) · TOEFL Score 550</div>
-        <div class="edu-highlight">✓ Fondasi kuat hardware/jaringan & bahasa Inggris profesional</div>
+        <div class="edu-label">Pendidikan Vokasi</div>
+        <div class="edu-title">SMKN 1 Pandeglang</div>
+        <div class="edu-sub">Teknik Komputer dan Jaringan (2017–2020)</div>
+        <div class="edu-highlight">✓ Fondasi kuat arsitektur komputer, hardware, jaringan & troubleshooting</div>
       </div>
     </div>
 
