@@ -81,7 +81,7 @@ export default function Contact() {
         <div ref={socialsRef} className="flex items-center justify-center gap-4 flex-wrap">
           {[
             { name: 'GITHUB', href: 'https://github.com/ReihanMutaqin' },
-            { name: 'LINKEDIN', href: 'https://linkedin.com/in/reihanmutaqin' },
+            { name: 'LINKEDIN', href: 'https://www.linkedin.com/in/reihan-mutaqin-351169201/' },
             { name: 'INSTAGRAM', href: 'https://instagram.com/reyhanmutakin' },
           ].map(({ name, href }, i) => (
             <span key={name} className="flex items-center gap-4">

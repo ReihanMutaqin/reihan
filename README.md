@@ -92,6 +92,6 @@ portfolio-reihan/
 
 - **Nama**: Reihan Mutaqin
 - **Email**: [reyhanmutakin1@gmail.com](mailto:reyhanmutakin1@gmail.com)
-- **LinkedIn**: [linkedin.com/in/reihanmutaqin](https://linkedin.com/in/reihanmutaqin)
+- **LinkedIn**: [linkedin.com/in/reihan-mutaqin-351169201](https://www.linkedin.com/in/reihan-mutaqin-351169201/)
 - **GitHub**: [github.com/ReihanMutaqin](https://github.com/ReihanMutaqin)
 - **Lokasi**: Pandeglang, Banten, Indonesia

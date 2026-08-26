@@ -529,7 +529,7 @@ function App() {
               <a href="https://github.com/ReihanMutaqin" target="_blank" rel="noreferrer">
                 <Github size={18} aria-hidden="true" /> GitHub
               </a>
-              <a href="https://linkedin.com/in/reihanmutaqin" target="_blank" rel="noreferrer">
+              <a href="https://www.linkedin.com/in/reihan-mutaqin-351169201/" target="_blank" rel="noreferrer">
                 <Linkedin size={18} aria-hidden="true" /> LinkedIn
               </a>
             </div>
