@@ -234,47 +234,6 @@ ul {
   transform: none;
 }
 
-.realtime-clock__indicator {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 7px;
-  height: 7px;
-}
-
-.realtime-clock__dot {
-  position: relative;
-  width: 5px;
-  height: 5px;
-  background: #10b981;
-  border-radius: 50%;
-  box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
-}
-
-.realtime-clock__ping {
-  position: absolute;
-  inset: -2.5px;
-  background: rgba(16, 185, 129, 0.45);
-  border-radius: 50%;
-  animation: clockPulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
-@keyframes clockPulse {
-  0% {
-    transform: scale(0.6);
-    opacity: 0.95;
-  }
-  70% {
-    transform: scale(2.3);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(2.5);
-    opacity: 0;
-  }
-}
-
 .realtime-clock__zone {
   font-weight: 850;
   color: var(--orange);

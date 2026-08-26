@@ -369,10 +369,6 @@ function RealTimeClock() {
 
   return (
     <div className="realtime-clock" title={`Waktu Indonesia Barat (WIB / UTC+7) — ${dateStr}`}>
-      <span className="realtime-clock__indicator">
-        <span className="realtime-clock__ping" />
-        <span className="realtime-clock__dot" />
-      </span>
       <span className="realtime-clock__zone">WIB</span>
       <span className="realtime-clock__sep">·</span>
       <span className="realtime-clock__digits">
