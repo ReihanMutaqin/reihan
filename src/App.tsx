@@ -42,6 +42,108 @@ const navigation = [
 
 const projects: Project[] = [
   {
+    title: 'Rdir Studio AI Workspace',
+    year: '2026',
+    category: 'AI Platform & Workspace',
+    description:
+      'Web AI Workspace modern kelas dunia seperti Claude & Kimi dengan Live Code/View Preview, integrasi multi-model OpenRouter, database TiDB Cloud, dan isolasi chat privat.',
+    tags: ['AI Workspace', 'OpenRouter', 'TiDB Cloud', 'Fullstack'],
+    image: '/images/ai-reihan.png',
+    accent: '#7c3aed',
+    wide: true,
+    link: 'https://ai.reihan.online/',
+  },
+  {
+    title: 'Filter Sakti — Data Cleansing Tool',
+    year: '2026',
+    category: 'Operasional Data & Web Tool',
+    description:
+      'Tools cleansing dan deduplikasi data otomatis untuk format WSA, MODOROSO, dan WAPPR dengan integrasi Google Sheets (5.600+ baris), upload .xlsx/.csv, dan filter per bulan.',
+    tags: ['Web', 'Data Cleansing', 'Google Sheets API', 'Excel'],
+    image: '/images/filter-sakti.png',
+    accent: '#f2994a',
+    link: 'https://filter-sakti.vercel.app/',
+  },
+  {
+    title: 'Filter Sakti EBIS — Telkom Tracker',
+    year: '2026',
+    category: 'Enterprise Data Tool',
+    description:
+      'Sistem analisis dan filtering data EBIS Telkom dari xpro.telkom.co.id (.xls/.txt/.csv), dilengkapi tracker penugasan teknisi dan export data hasil deduplikasi.',
+    tags: ['Telkom', 'Data Analysis', 'Web App', 'Excel'],
+    image: '/images/ebis-telkom.png',
+    accent: '#e53935',
+    link: 'https://ebis-telkom.vercel.app/',
+  },
+  {
+    title: 'REYA — Robot AI & Gesture Music',
+    year: '2026',
+    category: 'AI Robot & Computer Vision',
+    description:
+      'Robot AI interaktif dengan suara Bahasa Indonesia, percakapan suara cepat via OpenRouter AI, dan integrasi kamera computer vision untuk memainkan musik instrumen melalui gesture tangan.',
+    tags: ['Computer Vision', 'Hand Gesture', 'AI Voice', 'Web Audio'],
+    image: '/images/reya-reihan.png',
+    accent: '#06b6d4',
+    wide: true,
+    link: 'https://reya.reihan.online/',
+  },
+  {
+    title: 'SoundTools MetaStudio',
+    year: '2026',
+    category: 'Audio Engineering & Web Tool',
+    description:
+      'Browser-based audio metadata & cover art editor 100% client-side tanpa upload ke server. Mendukung ID3v2.3, Vorbis, FLAC, M4A, WAV, dan OGG dengan lossless stream copy injection.',
+    tags: ['Audio Metadata', 'ID3v2/Vorbis', 'Client-Side', 'Web Audio'],
+    image: '/images/metadata-reihan.png',
+    accent: '#10b981',
+    link: 'https://metadata.reihan.online/',
+  },
+  {
+    title: 'RIFF//LAB — Browser Rhythm Game',
+    year: '2026',
+    category: 'Web Rhythm Game & Cloud Audio',
+    description:
+      'Game musik ritme 5-fret (Guitar Hero style) langsung di browser tanpa instalasi. Dilengkapi akses katalog cloud Chorus 120.000+ lagu, import .sng/.zip, leaderboard, dan real-time multiplayer.',
+    tags: ['Rhythm Game', 'Web Audio API', 'Multiplayer', 'Leaderboard'],
+    image: '/images/musik-reihan.png',
+    accent: '#f59e0b',
+    wide: true,
+    link: 'https://musik.reihan.online/',
+  },
+  {
+    title: 'RS SHL — Sistem Absensi Digital',
+    year: '2026',
+    category: 'Healthcare Enterprise App',
+    description:
+      'Sistem absensi digital dan presensi pegawai Rumah Sakit SHL dengan verifikasi ID pegawai, alur check-in/check-out terstruktur, dan dashboard manajemen kehadiran terenkripsi.',
+    tags: ['Enterprise Web', 'Healthcare', 'Absensi Digital', 'Auth'],
+    image: '/images/shl-mu.png',
+    accent: '#0284c7',
+    link: 'https://shl-mu.vercel.app/',
+  },
+  {
+    title: 'HR Portal & Management System',
+    year: '2026',
+    category: 'HR & Enterprise Dashboard',
+    description:
+      'Platform HRIS dan manajemen sumber daya manusia dengan modul data karyawan terpusat, rekapitulasi kehadiran, pengajuan izin/cuti terintegrasi, dan reporting SDM.',
+    tags: ['HRIS', 'Enterprise Web', 'Dashboard', 'Management'],
+    image: '/images/hr-rei219.png',
+    accent: '#6366f1',
+    link: 'https://hr-rei219.vercel.app/',
+  },
+  {
+    title: 'The Wedding of Sheva & Angel',
+    year: '2026',
+    category: 'Digital Invitation Platform',
+    description:
+      'Platform undangan pernikahan digital interaktif dan responsif dengan buku tamu digital, amplop digital/rekening, reservasi kehadiran, background music, dan animasi interaktif.',
+    tags: ['Web', 'UI/UX', 'Digital Invitation', 'Interactive'],
+    image: '/images/shevaangel.png',
+    accent: '#c49b66',
+    link: 'https://shevaangel.vercel.app/',
+  },
+  {
     title: 'AR Book — Dasar Komputer',
     year: '2024',
     category: 'Aplikasi edukasi AR',
@@ -311,8 +413,14 @@ function App() {
                 <a className="button button--dark" href="#karya">
                   Lihat karya <ArrowDown size={18} aria-hidden="true" />
                 </a>
-                <a className="text-link" href="/downloads/CV-ATS-Reihan-Mutaqin.pdf" download>
-                  <Download size={17} aria-hidden="true" /> Unduh CV ATS
+                <a className="button button--accent" href="/downloads/Portofolio-Reihan-Mutaqin.pdf" download="Portofolio-Reihan-Mutaqin.pdf">
+                  <Download size={17} aria-hidden="true" /> Portofolio (PDF)
+                </a>
+                <a className="button button--dark" href="/downloads/Portofolio-Reihan-Mutaqin.pptx" download="Portofolio-Reihan-Mutaqin.pptx">
+                  <Download size={17} aria-hidden="true" /> PPT Portofolio
+                </a>
+                <a className="text-link" href="/downloads/CV-ATS-Reihan-Mutaqin.pdf" download="CV-ATS-Reihan-Mutaqin.pdf">
+                  <Download size={17} aria-hidden="true" /> CV ATS
                 </a>
               </div>
             </div>
@@ -360,7 +468,7 @@ function App() {
               <span>IPK dari 4,00</span>
             </div>
             <div>
-              <strong>8</strong>
+              <strong>17+</strong>
               <span>Proyek pilihan</span>
             </div>
             <div>
@@ -515,10 +623,16 @@ function App() {
           </div>
 
           <div className="contact-actions reveal">
-            <a className="button button--light" href="/downloads/CV-ATS-Reihan-Mutaqin.pdf" download>
-              <Download size={18} aria-hidden="true" /> Unduh CV ATS (PDF)
+            <a className="button button--light" href="/downloads/Portofolio-Reihan-Mutaqin.pdf" download="Portofolio-Reihan-Mutaqin.pdf">
+              <Download size={18} aria-hidden="true" /> Unduh Portofolio (PDF)
             </a>
-            <a className="text-link text-link--light" href="/downloads/CV-ATS-Reihan-Mutaqin.docx" download>
+            <a className="button button--light" href="/downloads/Portofolio-Reihan-Mutaqin.pptx" download="Portofolio-Reihan-Mutaqin.pptx">
+              <Download size={18} aria-hidden="true" /> Unduh Presentasi (PPTX)
+            </a>
+            <a className="button button--dark" href="/downloads/CV-ATS-Reihan-Mutaqin.pdf" download="CV-ATS-Reihan-Mutaqin.pdf">
+              <Download size={18} aria-hidden="true" /> CV ATS (PDF)
+            </a>
+            <a className="text-link text-link--light" href="/downloads/CV-ATS-Reihan-Mutaqin.docx" download="CV-ATS-Reihan-Mutaqin.docx">
               Versi Word
             </a>
           </div>

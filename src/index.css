@@ -284,6 +284,17 @@ ul {
   color: #fff;
 }
 
+.button--accent {
+  background: var(--yellow);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.button--accent:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
 .text-link {
   display: inline-flex;
   align-items: center;
@@ -816,6 +827,14 @@ ul {
   text-transform: uppercase;
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 36px;
+}
+
 .button--light {
   background: var(--paper);
   color: var(--ink);
@@ -1196,5 +1215,39 @@ ul {
   .has-js .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+@media print {
+  .topbar,
+  .skip-link,
+  .menu-button,
+  .mobile-nav,
+  .cursor,
+  .scroll-progress {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .section--projects {
+    background: #111111 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .project,
+  .experience,
+  .credential,
+  .skill-row {
+    break-inside: avoid !important;
   }
 }
