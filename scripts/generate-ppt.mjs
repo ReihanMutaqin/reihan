@@ -93,6 +93,7 @@ function topBar(slide, label, isDark = false) {
   slide.addShape(RECT, { x: 0.5, y: 4.35, w: 6.5, h: 0.015, fill: { color: '333333' } });
 
   const contacts = [
+    { icon: '✈', text: 't.me/Rei219 (@Rei219)' },
     { icon: '✉', text: 'reyhanmutakin1@gmail.com' },
     { icon: '📞', text: '+62 821 1103 9958' },
     { icon: '📍', text: 'Pandeglang, Banten, Indonesia' },
@@ -467,9 +468,9 @@ projectSlideData.forEach((ps) => {
   slide.addShape(RECT, { x: 0.6, y: 3.6, w: 12.1, h: 0.015, fill: { color: '333333' } });
 
   const contacts = [
+    { icon: '✈', label: 'Telegram', val: '@Rei219 (t.me/Rei219)', href: 'https://t.me/Rei219' },
     { icon: '✉', label: 'Email', val: 'reyhanmutakin1@gmail.com', href: 'mailto:reyhanmutakin1@gmail.com' },
     { icon: '📞', label: 'WhatsApp', val: '+62 821 1103 9958', href: 'https://wa.me/6282111039958' },
-    { icon: '📍', label: 'Domisili', val: 'Pandeglang, Banten, Indonesia', href: null },
     { icon: '💼', label: 'LinkedIn', val: 'linkedin.com/in/reihan-mutaqin-351169201', href: 'https://www.linkedin.com/in/reihan-mutaqin-351169201/' },
     { icon: '🐙', label: 'GitHub', val: 'github.com/ReihanMutaqin', href: 'https://github.com/ReihanMutaqin' },
     { icon: '🌐', label: 'Website', val: 'reihan.online', href: 'https://www.reihan.online/' },

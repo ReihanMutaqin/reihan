@@ -1270,6 +1270,7 @@ const htmlContent = `<!DOCTYPE html>
         <p>Terbuka untuk posisi Operasional TI, AI / Fullstack Web Development, dan Edukasi / Pelatihan Teknologi.</p>
       </div>
       <div class="cta-links">
+        <a class="cta-button" style="background:#0088cc;color:#fff;" href="https://t.me/Rei219">Telegram @Rei219</a>
         <a class="cta-button" href="mailto:reyhanmutakin1@gmail.com">Kirim Email</a>
         <a class="cta-button" style="background:#25d366;color:#fff;" href="https://wa.me/6282111039958">WhatsApp</a>
       </div>
