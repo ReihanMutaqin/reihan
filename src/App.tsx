@@ -455,21 +455,21 @@ function App() {
         >
           {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
-
-        <div id="mobile-navigation" className={`mobile-nav ${menuOpen ? 'is-open' : ''}`}>
-          <nav aria-label="Navigasi seluler">
-            {navigation.map((item, index) => (
-              <a key={item.href} href={item.href} onClick={closeMenu}>
-                <span>0{index + 1}</span>
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <a className="mobile-nav__email" href="https://t.me/Rei219" target="_blank" rel="noreferrer" onClick={closeMenu}>
-            Telegram: @Rei219 ↗
-          </a>
-        </div>
       </header>
+
+      <div id="mobile-navigation" className={`mobile-nav ${menuOpen ? 'is-open' : ''}`}>
+        <nav aria-label="Navigasi seluler">
+          {navigation.map((item, index) => (
+            <a key={item.href} href={item.href} onClick={closeMenu}>
+              <span>0{index + 1}</span>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+        <a className="mobile-nav__email" href="https://t.me/Rei219" target="_blank" rel="noreferrer" onClick={closeMenu}>
+          Telegram: @Rei219 ↗
+        </a>
+      </div>
 
       <main id="konten-utama">
         <section id="utama" className="hero" aria-labelledby="hero-title">

@@ -1045,15 +1045,18 @@ ul {
 
   .mobile-nav {
     position: fixed;
-    inset: 72px 0 0;
+    inset: 72px 0 0 0;
+    z-index: 9999;
     display: grid;
     grid-template-rows: 1fr auto;
-    padding: 42px clamp(24px, 7vw, 72px);
+    padding: 32px clamp(20px, 6vw, 48px) 36px;
     visibility: hidden;
     opacity: 0;
-    transform: translateY(-16px);
-    background: var(--paper);
-    transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+    transform: translateY(-10px);
+    background: #f3efe5;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+    transition: opacity 200ms ease, transform 200ms ease, visibility 200ms;
+    overflow-y: auto;
   }
 
   .mobile-nav.is-open {
@@ -1064,31 +1067,35 @@ ul {
 
   .mobile-nav nav {
     align-self: center;
+    width: 100%;
   }
 
   .mobile-nav nav a {
     display: grid;
-    grid-template-columns: 52px 1fr;
+    grid-template-columns: 44px 1fr;
     align-items: center;
-    padding: 18px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--line);
-    font-size: clamp(2rem, 6vw, 4.2rem);
-    font-weight: 760;
-    letter-spacing: -0.05em;
+    font-size: clamp(1.35rem, 5.5vw, 1.9rem);
+    font-weight: 780;
+    letter-spacing: -0.03em;
+    color: var(--ink);
   }
 
   .mobile-nav nav span {
-    color: var(--muted);
-    font-size: 0.68rem;
+    color: var(--orange);
+    font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.08em;
   }
 
   .mobile-nav__email {
-    padding-top: 20px;
+    padding-top: 18px;
+    margin-top: 18px;
     border-top: 1px solid var(--ink);
-    font-size: 0.8rem;
+    font-size: 0.88rem;
     font-weight: 750;
+    color: var(--ink);
   }
 
   .hero {
@@ -1324,7 +1331,8 @@ ul {
   }
 
   .mobile-nav {
-    top: 60px;
+    inset: 60px 0 0 0;
+    background: #f3efe5;
   }
 
   .hero {
