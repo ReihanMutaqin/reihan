@@ -39,10 +39,11 @@ const translations: any = {
       label: 'THE PATH',
       title: 'THE PATH',
       items: [
-        { date: 'Nov 2025 – Present', role: 'Helpdesk Agent', company: 'PT Telkom Indonesia', description: 'Providing first-line technical support and customer service for Telkom\'s products and services. Handling incident tickets, troubleshooting network and service issues, and ensuring customer satisfaction through effective communication and problem resolution.' },
-        { date: '2024 – Present', role: 'Freelance Developer', company: 'Self-Employed', description: 'Building games, AR experiences, and web applications for clients across education and entertainment sectors.' },
-        { date: '2022 – 2024', role: 'Lead Developer', company: 'Himpunan Mahasiswa PTI', description: 'Led a 12-person technical team in developing educational software and organizing technology workshops for 200+ students.' },
-        { date: '2020 – 2024', role: 'Computer Science Student', company: 'Universitas Bina Bangsa', description: 'Studied at Universitas Bina Bangsa with a focus on game development, graduating with a 3.96 GPA.' }
+        { date: 'Jul 2026 – Present', role: 'Representative District Southern', company: 'PT Telkom Indonesia', description: 'Managing operational representation, telecommunication service coordination, network quality monitoring, and field operational issue resolution across District Southern.' },
+        { date: 'Nov 2025 – Jun 2026', role: 'Agent', company: 'PT Telkom Indonesia', description: 'Reconciled network & customer service data in UIM, monitored order workflows (WOC/ROC), and developed automated data cleansing tools.' },
+        { date: '2022 – Present', role: 'Freelance Developer', company: 'Self-Employed', description: 'Building AI tools, games, AR experiences, and web applications for clients across multiple sectors.' },
+        { date: '2022 – 2024', role: 'Vice Chairman & IT Lead', company: 'Himpunan Mahasiswa PTI', description: 'Led technical teams in developing educational software and organizing technology workshops for 200+ students.' },
+        { date: '2020 – 2024', role: 'Bachelor of Information Technology Education', company: 'Universitas Bina Bangsa', description: 'Graduated as Valedictorian / Best Graduate of the Study Program with a 3.96 / 4.00 GPA.' }
       ]
     },
     goldenFlow: {
@@ -140,10 +141,11 @@ const translations: any = {
       label: 'PERJALANAN',
       title: 'PERJALANAN',
       items: [
-        { date: 'Nov 2025 – Sekarang', role: 'Helpdesk Agent', company: 'PT Telkom Indonesia', description: 'Memberikan dukungan teknis lini pertama dan layanan pelanggan untuk produk dan layanan Telkom. Menangani tiket insiden, memecahkan masalah jaringan dan layanan, serta memastikan kepuasan pelanggan melalui komunikasi dan penyelesaian masalah yang efektif.' },
-        { date: '2024 – Sekarang', role: 'Freelance Developer', company: 'Pekerja Lepas', description: 'Membangun game, pengalaman AR, dan aplikasi web untuk klien di sektor pendidikan dan hiburan.' },
-        { date: '2022 – 2024', role: 'Lead Developer', company: 'Himpunan Mahasiswa PTI', description: 'Memimpin tim teknis beranggotakan 12 orang dalam mengembangkan perangkat lunak pendidikan dan menyelenggarakan lokakarya teknologi untuk 200+ siswa.' },
-        { date: '2020 – 2024', role: 'Mahasiswa Ilmu Komputer', company: 'Universitas Bina Bangsa', description: 'Belajar di Universitas Bina Bangsa dengan fokus pada pengembangan game, lulus dengan IPK 3.96.' }
+        { date: 'Jul 2026 – Sekarang', role: 'Representative District Southern', company: 'PT Telkom Indonesia', description: 'Menjalankan perwakilan operasional, koordinasi layanan telekomunikasi, monitoring kualitas jaringan, serta rekonsiliasi data pelanggan District Southern.' },
+        { date: 'Nov 2025 – Jun 2026', role: 'Agent', company: 'PT Telkom Indonesia', description: 'Merekonsiliasi data jaringan & layanan di UIM, memantau alur order WOC/ROC, dan membangun otomasi tools cleansing data operasional.' },
+        { date: '2022 – Sekarang', role: 'Freelance Developer', company: 'Pekerja Lepas', description: 'Membangun aplikasi web AI, game, pengalaman AR, dan sistem digital untuk berbagai klien profesional.' },
+        { date: '2022 – 2024', role: 'Wakil Ketua & Ketua Divisi IT', company: 'Himpunan Mahasiswa PTI', description: 'Memimpin tim teknis dalam pengembangan perangkat lunak dan menyelenggarakan lokakarya teknologi untuk 200+ peserta.' },
+        { date: '2020 – 2024', role: 'S1 Pendidikan Teknologi Informasi', company: 'Universitas Bina Bangsa', description: 'Lulusan Terbaik Program Studi dengan IPK 3,96/4,00.' }
       ]
     },
     goldenFlow: {

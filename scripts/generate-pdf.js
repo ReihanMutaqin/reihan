@@ -750,8 +750,20 @@ const htmlContent = `<!DOCTYPE html>
       <!-- Exp 1 -->
       <div class="exp-card-full">
         <div class="exp-header">
+          <span class="exp-role">Representative District Southern</span>
+          <span class="exp-period">Jul 2026 — Sekarang</span>
+        </div>
+        <div class="exp-company">PT Telkom Indonesia</div>
+        <div class="exp-desc">
+          Menjalankan fungsi perwakilan operasional, koordinasi layanan telekomunikasi di District Southern, pemantauan performa jaringan, rekonsiliasi data pelanggan lintas sistem, dan penanganan isu operasional lapangan.
+        </div>
+      </div>
+
+      <!-- Exp 2 -->
+      <div class="exp-card-full">
+        <div class="exp-header">
           <span class="exp-role">Agent</span>
-          <span class="exp-period">Nov 2025 — Sekarang</span>
+          <span class="exp-period">Nov 2025 — Jun 2026</span>
         </div>
         <div class="exp-company">PT Telkom Indonesia</div>
         <div class="exp-desc">

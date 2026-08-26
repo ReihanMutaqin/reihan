@@ -230,13 +230,23 @@ const projects: Project[] = [
 
 const experiences: Experience[] = [
   {
-    period: 'Nov 2025 — Sekarang',
+    period: 'Jul 2026 — Sekarang',
+    role: 'Representative District Southern',
+    company: 'PT Telkom Indonesia',
+    details: [
+      'Menjalankan fungsi perwakilan operasional dan koordinasi layanan telekomunikasi di District Southern.',
+      'Memantau performa jaringan, rekonsiliasi data pelanggan lintas sistem, dan penanganan isu operasional lapangan.',
+      'Menyusun laporan kinerja layanan dan berkoordinasi langsung dengan tim teknis serta manajemen.',
+    ],
+  },
+  {
+    period: 'Nov 2025 — Jun 2026',
     role: 'Agent',
     company: 'PT Telkom Indonesia',
     details: [
       'Merekonsiliasi data jaringan dan layanan antara UIM dengan informasi pelanggan untuk menjaga akurasi data.',
       'Memantau serta menindaklanjuti order melalui alur WOC, organic, C4, GDoc, dan ROC.',
-      'Menyusun laporan operasional, melacak progres, dan berkoordinasi dalam penyelesaian kendala.',
+      'Membangun automation filtering tool untuk mempercepat proses cleansing data operasional.',
     ],
   },
   {

@@ -204,7 +204,8 @@ function topBar(slide, label, isDark = false) {
   slide.addShape(RECT, { x: 0.4, y: 1.8, w: 12.5, h: 0.015, fill: { color: '333333' } });
 
   const exps = [
-    { period: 'Nov 2025 — Sekarang', role: 'Agent', company: 'PT Telkom Indonesia', desc: 'Merekonsiliasi data jaringan dan layanan antara UIM dengan informasi pelanggan. Memantau order alur WOC, organic, C4, GDoc, dan ROC. Mengembangkan automated filtering tool untuk cleansing data.' },
+    { period: 'Jul 2026 — Sekarang', role: 'Representative District Southern', company: 'PT Telkom Indonesia', desc: 'Menjalankan perwakilan operasional, koordinasi layanan District Southern, monitoring performa jaringan, rekonsiliasi data pelanggan, dan eskalasi isu.' },
+    { period: 'Nov 2025 — Jun 2026', role: 'Agent', company: 'PT Telkom Indonesia', desc: 'Merekonsiliasi data jaringan & layanan UIM, memantau order WOC/ROC, dan mengembangkan automated tools cleansing data operasional.' },
     { period: 'Jul — Des 2025',      role: 'Pengajar Informatika', company: 'Ganesha Operation', desc: 'Menyusun modul ajar, menyampaikan konsep informatika & pemrograman, serta memfasilitasi sesi latihan praktik dan evaluasi pemahaman siswa.' },
     { period: 'Okt 2022 — Sekarang', role: 'Freelance App, Game & Web Developer', company: 'Mandiri / Klien Profesional', desc: 'Mengembangkan platform AI, web tools, aplikasi AR berbasis Unity, game edukasi 3D/2D, hingga CMS berita & e-commerce terintegrasi.' },
     { period: 'Feb — Mar 2024',      role: 'Pengajar Magang', company: 'SMKN 1 Pandeglang', desc: 'Mengajar lebih dari 2 kelas bidang TKJ/Informatika, menyusun rancangan pembelajaran, dan membimbing praktikum perangkat keras & jaringan.' },
