@@ -1129,10 +1129,22 @@ ul {
 
   .hero__copy {
     min-height: calc(100svh - 72px);
+    padding: clamp(24px, 5vw, 40px) clamp(18px, 4vw, 32px);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 7vw, 3.4rem);
+    line-height: 1.02;
+  }
+
+  .hero__lead {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 20px;
   }
 
   .hero__portrait {
-    min-height: min(760px, 92svh);
+    min-height: min(540px, 80svh);
     border-top: 1px solid var(--ink);
     border-left: 0;
   }
@@ -1142,16 +1154,54 @@ ul {
     width: 104%;
   }
 
+  .section {
+    padding: clamp(40px, 6vw, 60px) clamp(16px, 4vw, 24px);
+    scroll-margin-top: 72px;
+  }
+
+  .section-heading {
+    gap: 8px;
+    padding-top: 16px;
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.6rem, 5.5vw, 2.4rem);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+  }
+
   .profile-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .profile-grid__statement {
+    padding: clamp(16px, 4vw, 24px);
+  }
+
+  .profile-grid__statement p {
+    font-size: clamp(1.05rem, 3.8vw, 1.25rem);
+    line-height: 1.5;
+    letter-spacing: normal;
   }
 
   .profile-grid__body {
-    max-width: 680px;
+    max-width: 100%;
+    font-size: 0.94rem;
+    line-height: 1.65;
+    gap: 12px;
   }
 
   .profile-stats {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 24px;
+  }
+
+  .profile-stats div {
+    padding: 16px 14px;
+    gap: 4px;
   }
 
   .profile-stats div:nth-child(2) {
@@ -1162,104 +1212,179 @@ ul {
     border-bottom: 1px solid var(--line);
   }
 
-  .profile-photos {
-    grid-template-columns: 1fr;
+  .profile-stats strong {
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
   }
 
-  .profile-photo--portrait {
-    width: 66%;
+  .profile-stats span {
+    font-size: 0.65rem;
   }
 
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project h3 {
+    font-size: 1.35rem;
+  }
+
+  .project p {
+    font-size: 0.9rem;
   }
 
   .experience {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 12px;
+    padding: 20px 0;
+  }
+
+  .experience__title h3 {
+    font-size: 1.2rem;
   }
 
   .experience ul {
-    margin-top: 8px;
+    margin-top: 6px;
+    font-size: 0.9rem;
   }
 
   .skill-row {
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: 44px 1fr;
+    gap: 12px;
+    padding: 20px 0;
+  }
+
+  .skill-row h3 {
+    font-size: 1.2rem;
   }
 
   .skill-row p {
     grid-column: 2;
+    font-size: 0.9rem;
   }
 
   .credentials-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .credential {
+    padding: 20px 18px;
+    min-height: auto;
+  }
+
+  .credential h3 {
+    margin-top: 16px;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+  }
+
+  .contact-section {
+    padding: clamp(56px, 8vw, 84px) clamp(16px, 4vw, 24px) 28px;
   }
 
   .contact-section__top h2 {
-    font-size: clamp(3rem, 13vw, 6.2rem);
+    font-size: clamp(2.2rem, 7.5vw, 3.8rem);
+    line-height: 1.0;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    margin-top: 36px;
+  }
+
+  .contact-grid > * {
+    border-right: 0;
+    border-bottom: 1px solid rgba(18, 18, 18, 0.3);
+    padding: 18px 12px;
+  }
+
+  .contact-grid > *:last-child {
+    border-bottom: 0;
   }
 }
 
 @media (max-width: 560px) {
   .topbar {
-    height: 64px;
-    padding-inline: 18px;
+    height: 60px;
+    padding-inline: 14px;
+  }
+
+  .topbar__left {
+    gap: 10px;
+  }
+
+  .brand {
+    font-size: 1.2rem;
+  }
+
+  .realtime-clock {
+    font-size: 0.62rem;
+    gap: 5px;
   }
 
   .mobile-nav {
-    top: 64px;
+    top: 60px;
   }
 
   .hero {
-    padding-top: 64px;
+    padding-top: 60px;
   }
 
   .hero__copy {
-    min-height: calc(100svh - 64px);
-    padding: 22px 20px;
-  }
-
-  .hero__topline p:last-child,
-  .hero__footer span:last-child {
-    display: none;
+    min-height: calc(100svh - 60px);
+    padding: 16px 14px;
   }
 
   .hero__content {
-    padding: 74px 0;
+    padding: 36px 0;
   }
 
   .hero h1 {
-    font-size: clamp(3rem, 15.8vw, 5.4rem);
-    letter-spacing: -0.07em;
+    font-size: clamp(1.9rem, 8.5vw, 2.6rem);
+    line-height: 1.05;
   }
 
   .hero__lead {
-    margin-top: 28px;
-    font-size: 0.98rem;
+    margin-top: 16px;
+    font-size: 0.9rem;
+    line-height: 1.55;
   }
 
   .hero__actions,
   .contact-actions {
-    align-items: flex-start;
+    align-items: stretch;
     flex-direction: column;
-    gap: 18px;
+    gap: 10px;
+  }
+
+  .hero__actions .button,
+  .contact-actions .button {
+    justify-content: center;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.76rem;
   }
 
   .hero__portrait {
-    min-height: 620px;
+    min-height: 460px;
   }
 
   .hero__portrait img {
-    right: -14%;
-    bottom: -10%;
-    width: 128%;
-    height: 112%;
+    right: -10%;
+    bottom: -8%;
+    width: 120%;
+    height: 110%;
+  }
+
+  .hero__portrait-word {
+    font-size: 4.8rem;
   }
 
   .section,
   .contact-section {
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 14px;
+    padding-left: 14px;
   }
 
   .section--projects .section-heading,
@@ -1270,61 +1395,72 @@ ul {
   }
 
   .section-heading {
-    gap: 12px;
+    gap: 8px;
+    padding-top: 14px;
+    padding-bottom: 16px;
+    margin-bottom: 18px;
   }
 
   .section-heading h2 {
-    font-size: clamp(2.35rem, 12vw, 4rem);
+    font-size: clamp(1.4rem, 6.2vw, 1.85rem);
+  }
+
+  .profile-grid__statement {
+    padding: 16px 14px;
   }
 
   .profile-grid__statement p {
-    font-size: clamp(2rem, 10vw, 3.3rem);
-  }
-
-  .profile-stats div {
-    padding: 22px 14px 24px;
+    font-size: 1.02rem;
+    line-height: 1.48;
   }
 
   .profile-stats strong {
-    font-size: 2.5rem;
+    font-size: 1.55rem;
   }
 
-  .profile-photo--portrait {
-    width: 82%;
+  .profile-stats span {
+    font-size: 0.6rem;
   }
 
   .project__visual {
-    padding: 24px;
+    padding: 14px;
   }
 
   .project h3 {
-    font-size: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .project p {
+    font-size: 0.85rem;
   }
 
   .project__footer {
     align-items: flex-start;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
   }
 
   .skill-row {
-    grid-template-columns: 36px 1fr;
-    gap: 14px;
+    grid-template-columns: 32px 1fr;
+    gap: 10px;
   }
 
   .credential {
-    min-height: 0;
-    padding: 28px 22px;
+    padding: 18px 14px;
+  }
+
+  .contact-section__top h2 {
+    font-size: clamp(1.85rem, 8.5vw, 2.6rem);
   }
 
   .contact-grid > * {
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    padding: 22px 8px;
+    padding: 16px 8px;
   }
 
   .contact-footer {
     align-items: flex-start;
     flex-direction: column;
+    gap: 16px;
   }
 }
 
