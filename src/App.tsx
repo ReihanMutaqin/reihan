@@ -34,8 +34,8 @@ type Experience = {
 
 const navigation = [
   { label: 'Profil', href: '#profil' },
-  { label: 'Karya', href: '#karya' },
   { label: 'Pengalaman', href: '#pengalaman' },
+  { label: 'Karya', href: '#karya' },
   { label: 'Keahlian', href: '#keahlian' },
   { label: 'Kontak', href: '#kontak' },
 ]
@@ -493,8 +493,29 @@ function App() {
           </div>
         </section>
 
+        <section id="pengalaman" className="section section--experience">
+          <SectionHeading number="02" eyebrow="Pengalaman" title="Pengalaman lintas operasi, pengembangan, dan pendidikan." />
+
+          <div className="experience-list">
+            {experiences.map((experience) => (
+              <article className="experience reveal" key={`${experience.company}-${experience.period}`}>
+                <p className="experience__period">{experience.period}</p>
+                <div className="experience__title">
+                  <h3>{experience.role}</h3>
+                  <p>{experience.company}</p>
+                </div>
+                <ul>
+                  {experience.details.map((detail) => (
+                    <li key={detail}>{detail}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section id="karya" className="section section--projects">
-          <SectionHeading number="02" eyebrow="Karya pilihan" title="Produk yang dibuat untuk dipakai, bukan sekadar dilihat." />
+          <SectionHeading number="03" eyebrow="Karya pilihan" title="Produk yang dibuat untuk dipakai, bukan sekadar dilihat." />
 
           <div className="projects-grid">
             {projects.map((project, index) => (
@@ -523,27 +544,6 @@ function App() {
                     <span>Studi proyek</span>
                   )}
                 </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="pengalaman" className="section section--experience">
-          <SectionHeading number="03" eyebrow="Pengalaman" title="Pengalaman lintas operasi, pengembangan, dan pendidikan." />
-
-          <div className="experience-list">
-            {experiences.map((experience) => (
-              <article className="experience reveal" key={`${experience.company}-${experience.period}`}>
-                <p className="experience__period">{experience.period}</p>
-                <div className="experience__title">
-                  <h3>{experience.role}</h3>
-                  <p>{experience.company}</p>
-                </div>
-                <ul>
-                  {experience.details.map((detail) => (
-                    <li key={detail}>{detail}</li>
-                  ))}
-                </ul>
               </article>
             ))}
           </div>
