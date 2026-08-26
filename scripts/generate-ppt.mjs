@@ -74,7 +74,7 @@ function topBar(slide, label, isDark = false) {
     x: 0.7, y: 0.5, w: 6.5, h: 0.35,
     fontSize: 8, bold: true, color: C.yellow, fontFace: F.body, charSpacing: 2
   });
-  slide.addText('2026', {
+  slide.addText(String(new Date().getFullYear()), {
     x: 0.7, y: 0.85, w: 6.5, h: 0.35,
     fontSize: 8, color: C.muted, fontFace: F.mono
   });

@@ -472,7 +472,7 @@ function App() {
         <section id="utama" className="hero" aria-labelledby="hero-title">
           <div className="hero__copy">
             <div className="hero__topline">
-              <p>Portofolio / 2026</p>
+              <p>Portofolio / {new Date().getFullYear()}</p>
               <RealTimeClock />
             </div>
 
