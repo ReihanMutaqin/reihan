@@ -19,7 +19,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scroll-padding-top: 82px;
 }
 
@@ -1116,7 +1116,18 @@ html.lenis, html.lenis body {
 .has-js .reveal--rotate {
   will-change: opacity, transform, filter;
   transition-property: opacity, transform, filter;
-  transition-duration: 800ms;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.has-js .reveal.is-visible,
+.has-js .reveal--up.is-visible,
+.has-js .reveal--down.is-visible,
+.has-js .reveal--left.is-visible,
+.has-js .reveal--right.is-visible,
+.has-js .reveal--scale.is-visible,
+.has-js .reveal--rotate.is-visible {
+  transition-duration: 750ms;
   transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1124,7 +1135,7 @@ html.lenis, html.lenis body {
 .has-js .reveal,
 .has-js .reveal--up {
   opacity: 0;
-  transform: translateY(36px);
+  transform: translateY(32px);
   filter: blur(4px);
 }
 
@@ -1138,7 +1149,7 @@ html.lenis, html.lenis body {
 /* Reveal Down */
 .has-js .reveal--down {
   opacity: 0;
-  transform: translateY(-30px);
+  transform: translateY(-28px);
   filter: blur(4px);
 }
 
@@ -1151,7 +1162,7 @@ html.lenis, html.lenis body {
 /* Reveal Left */
 .has-js .reveal--left {
   opacity: 0;
-  transform: translateX(-40px);
+  transform: translateX(-36px);
   filter: blur(4px);
 }
 
@@ -1164,7 +1175,7 @@ html.lenis, html.lenis body {
 /* Reveal Right */
 .has-js .reveal--right {
   opacity: 0;
-  transform: translateX(40px);
+  transform: translateX(36px);
   filter: blur(4px);
 }
 
@@ -1177,7 +1188,7 @@ html.lenis, html.lenis body {
 /* Reveal Scale / Zoom In */
 .has-js .reveal--scale {
   opacity: 0;
-  transform: scale(0.92);
+  transform: scale(0.93);
   filter: blur(5px);
 }
 
@@ -1190,7 +1201,7 @@ html.lenis, html.lenis body {
 /* Reveal 3D Rotate */
 .has-js .reveal--rotate {
   opacity: 0;
-  transform: perspective(1000px) rotateX(10deg) translateY(30px);
+  transform: perspective(1000px) rotateX(8deg) translateY(24px);
   filter: blur(4px);
 }
 
@@ -1200,15 +1211,22 @@ html.lenis, html.lenis body {
   filter: blur(0px);
 }
 
-/* Stagger Utilities */
-.has-js .stagger-1 { transition-delay: 80ms; }
-.has-js .stagger-2 { transition-delay: 160ms; }
-.has-js .stagger-3 { transition-delay: 240ms; }
-.has-js .stagger-4 { transition-delay: 320ms; }
-.has-js .stagger-5 { transition-delay: 400ms; }
-.has-js .stagger-6 { transition-delay: 480ms; }
-.has-js .stagger-7 { transition-delay: 560ms; }
-.has-js .stagger-8 { transition-delay: 640ms; }
+/* Stagger Utilities - active during entrance only */
+.has-js .is-visible.stagger-1 { transition-delay: 70ms; }
+.has-js .is-visible.stagger-2 { transition-delay: 140ms; }
+.has-js .is-visible.stagger-3 { transition-delay: 210ms; }
+.has-js .is-visible.stagger-4 { transition-delay: 280ms; }
+.has-js .is-visible.stagger-5 { transition-delay: 350ms; }
+.has-js .is-visible.stagger-6 { transition-delay: 420ms; }
+.has-js .is-visible.stagger-7 { transition-delay: 490ms; }
+.has-js .is-visible.stagger-8 { transition-delay: 560ms; }
+
+.has-js [style*="--stagger"] {
+  transition-delay: 0ms;
+}
+.has-js .is-visible[style*="--stagger"] {
+  transition-delay: var(--stagger);
+}
 
 /* Micro-interactions and Hover Effects */
 .hover-lift {

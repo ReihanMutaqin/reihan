@@ -323,7 +323,7 @@ function AnimatedCounter({
   target,
   suffix = '',
   decimals = 0,
-  duration = 1600,
+  duration = 1400,
 }: {
   target: number
   suffix?: string
@@ -332,7 +332,7 @@ function AnimatedCounter({
 }) {
   const [count, setCount] = useState(0)
   const ref = useRef<HTMLSpanElement>(null)
-  const hasAnimated = useRef(false)
+  const rafRef = useRef<number | null>(null)
 
   useEffect(() => {
     const el = ref.current
@@ -341,8 +341,8 @@ function AnimatedCounter({
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated.current) {
-            hasAnimated.current = true
+          if (entry.isIntersecting) {
+            if (rafRef.current) cancelAnimationFrame(rafRef.current)
             const startTime = performance.now()
 
             const animate = (currentTime: number) => {
@@ -354,14 +354,16 @@ function AnimatedCounter({
               setCount(currentVal)
 
               if (progress < 1) {
-                requestAnimationFrame(animate)
+                rafRef.current = requestAnimationFrame(animate)
               } else {
                 setCount(target)
               }
             }
 
-            requestAnimationFrame(animate)
-            observer.unobserve(el)
+            rafRef.current = requestAnimationFrame(animate)
+          } else {
+            if (rafRef.current) cancelAnimationFrame(rafRef.current)
+            setCount(0)
           }
         })
       },
@@ -369,7 +371,10 @@ function AnimatedCounter({
     )
 
     observer.observe(el)
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    }
   }, [target, duration])
 
   const formatted = decimals > 0 ? count.toFixed(decimals).replace('.', ',') : Math.round(count).toString()
@@ -451,6 +456,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [showBackToTop, setShowBackToTop] = useState(false)
+  const lenisRef = useRef<Lenis | null>(null)
 
   // Initialize Lenis smooth scroll
   useEffect(() => {
@@ -458,10 +464,15 @@ function App() {
     if (reducedMotion) return
 
     const lenis = new Lenis({
-      duration: 1.1,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
       smoothWheel: true,
+      touchMultiplier: 1.5,
     })
+
+    lenisRef.current = lenis
 
     let rafId: number
     function raf(time: number) {
@@ -473,6 +484,7 @@ function App() {
     return () => {
       cancelAnimationFrame(rafId)
       lenis.destroy()
+      lenisRef.current = null
     }
   }, [])
 
@@ -491,7 +503,7 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Comprehensive IntersectionObserver for all reveal classes
+  // Repeatable bidirectional IntersectionObserver for all reveal classes
   useEffect(() => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const elements = Array.from(
@@ -510,11 +522,13 @@ function App() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible')
-            observer.unobserve(entry.target)
+          } else {
+            // Remove is-visible on leaving viewport so it replays smoothly when scrolling back!
+            entry.target.classList.remove('is-visible')
           }
         })
       },
-      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
+      { threshold: 0.1, rootMargin: '0px 0px -30px 0px' },
     )
 
     elements.forEach((element) => observer.observe(element))
@@ -531,7 +545,24 @@ function App() {
   const closeMenu = () => setMenuOpen(false)
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { duration: 1.0 })
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      closeMenu()
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(href, { offset: -72, duration: 1.0 })
+      } else {
+        const target = document.querySelector(href)
+        target?.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
   }
 
   return (
@@ -549,7 +580,12 @@ function App() {
 
       <header className="topbar">
         <div className="topbar__left">
-          <a className="brand" href="#utama" aria-label="Kembali ke awal">
+          <a
+            className="brand"
+            href="#utama"
+            onClick={(e) => handleNavClick(e, '#utama')}
+            aria-label="Kembali ke awal"
+          >
             RM<span>.</span>
           </a>
           <RealTimeClock />
@@ -557,7 +593,11 @@ function App() {
 
         <nav className="desktop-nav" aria-label="Navigasi utama">
           {navigation.map((item) => (
-            <a key={item.href} href={item.href}>
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
+            >
               {item.label}
             </a>
           ))}
@@ -582,7 +622,11 @@ function App() {
       <div id="mobile-navigation" className={`mobile-nav ${menuOpen ? 'is-open' : ''}`}>
         <nav aria-label="Navigasi seluler">
           {navigation.map((item, index) => (
-            <a key={item.href} href={item.href} onClick={closeMenu}>
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
+            >
               <span>0{index + 1}</span>
               {item.label}
             </a>
@@ -612,7 +656,11 @@ function App() {
                 Saya Reihan Mutaqin. Saya menggabungkan ketelitian operasional, pengembangan perangkat lunak, dan pengalaman mengajar untuk membuat solusi digital yang jelas dan berguna.
               </p>
               <div className="hero__actions reveal--up stagger-4">
-                <a className="button button--dark hover-lift" href="#karya">
+                <a
+                  className="button button--dark hover-lift"
+                  href="#karya"
+                  onClick={(e) => handleNavClick(e, '#karya')}
+                >
                   Lihat karya <ArrowDown size={18} aria-hidden="true" />
                 </a>
                 <a className="button button--accent hover-lift" href="/downloads/Portofolio-Reihan-Mutaqin.pdf" download="Portofolio-Reihan-Mutaqin.pdf">
@@ -700,7 +748,7 @@ function App() {
               <article
                 className="experience reveal--up"
                 key={`${experience.company}-${experience.period}`}
-                style={{ transitionDelay: `${index * 80}ms` }}
+                style={{ '--stagger': `${(index % 4) * 80}ms` } as CSSProperties}
               >
                 <p className="experience__period">{experience.period}</p>
                 <div className="experience__title">
@@ -728,7 +776,7 @@ function App() {
                 style={
                   {
                     '--project-accent': project.accent,
-                    transitionDelay: `${(index % 4) * 90}ms`,
+                    '--stagger': `${(index % 4) * 80}ms`,
                   } as CSSProperties
                 }
               >
@@ -765,7 +813,7 @@ function App() {
               <article
                 className="skill-row reveal--left"
                 key={group.number}
-                style={{ transitionDelay: `${index * 110}ms` }}
+                style={{ '--stagger': `${(index % 3) * 100}ms` } as CSSProperties}
               >
                 <span>{group.number}</span>
                 <h3>{group.title}</h3>
@@ -775,26 +823,26 @@ function App() {
           </div>
 
           <div className="credentials-grid">
-            <div className="credential reveal--scale" style={{ transitionDelay: '0ms' }}>
+            <div className="credential reveal--scale" style={{ '--stagger': '0ms' } as CSSProperties}>
               <p className="credential__label">Pendidikan</p>
               <h3>Universitas Bina Bangsa</h3>
               <p>Pendidikan Teknologi Informasi · 2020–2024</p>
               <p>IPK 3,96/4,00 · Lulusan Terbaik Program Studi 2024</p>
               <p>TOEFL Pusat Bahasa Universitas Bina Bangsa · 550</p>
             </div>
-            <div className="credential reveal--scale" style={{ transitionDelay: '100ms' }}>
+            <div className="credential reveal--scale" style={{ '--stagger': '80ms' } as CSSProperties}>
               <p className="credential__label">Dasar teknis</p>
               <h3>SMKN 1 Pandeglang</h3>
               <p>Teknik Komputer dan Jaringan · 2017–2020</p>
               <p>Kompetensi Kejuruan Hardware, Jaringan & Troubleshooting</p>
             </div>
-            <div className="credential reveal--scale" style={{ transitionDelay: '200ms' }}>
+            <div className="credential reveal--scale" style={{ '--stagger': '160ms' } as CSSProperties}>
               <p className="credential__label">Organisasi</p>
               <h3>Himpunan Mahasiswa PTI</h3>
               <p>Wakil Ketua · Jun 2022–Jun 2023</p>
               <p>Ketua Divisi IT · Jun 2021–Jun 2022</p>
             </div>
-            <div className="credential reveal--scale" style={{ transitionDelay: '300ms' }}>
+            <div className="credential reveal--scale" style={{ '--stagger': '240ms' } as CSSProperties}>
               <p className="credential__label">Kontribusi</p>
               <h3>Inovasi Teknologi Pendidikan Indonesia</h3>
               <p>Okt 2025–Februari 2026</p>
