@@ -430,12 +430,13 @@ ul {
 
 .hero__portrait-word {
   position: absolute;
-  top: 44%;
-  left: 50%;
-  color: rgba(21, 21, 21, 0.1);
-  font-size: clamp(4.6rem, 9vw, 10rem);
+  top: 48%;
+  left: 20%;
+  z-index: 1;
+  color: rgba(21, 21, 21, 0.12);
+  font-size: clamp(4.4rem, 7.5vw, 8.5rem);
   font-weight: 900;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.06em;
   line-height: 1;
   transform: translate(-50%, -50%) rotate(-90deg);
   pointer-events: none;
@@ -1705,7 +1706,9 @@ html.lenis, html.lenis body {
   }
 
   .hero__portrait-word {
-    font-size: 4.2rem;
+    left: 20%;
+    top: 48%;
+    font-size: 3.8rem;
   }
 
   .hero__copy {
