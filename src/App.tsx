@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
+import Lenis from 'lenis'
 import {
   ArrowDown,
+  ArrowUp,
   ArrowUpRight,
   Download,
   Github,
@@ -307,13 +309,76 @@ const skillGroups = [
 
 function SectionHeading({ number, eyebrow, title }: { number: string; eyebrow: string; title: string }) {
   return (
-    <div className="section-heading reveal">
+    <div className="section-heading reveal--up">
       <div className="section-heading__meta">
         <span className="section-heading__number">{number}</span>
         <p className="section-heading__eyebrow">{eyebrow}</p>
       </div>
       <h2>{title}</h2>
     </div>
+  )
+}
+
+function AnimatedCounter({
+  target,
+  suffix = '',
+  decimals = 0,
+  duration = 1600,
+}: {
+  target: number
+  suffix?: string
+  decimals?: number
+  duration?: number
+}) {
+  const [count, setCount] = useState(0)
+  const ref = useRef<HTMLSpanElement>(null)
+  const hasAnimated = useRef(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated.current) {
+            hasAnimated.current = true
+            const startTime = performance.now()
+
+            const animate = (currentTime: number) => {
+              const elapsed = currentTime - startTime
+              const progress = Math.min(elapsed / duration, 1)
+              const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress)
+              const currentVal = easeOut * target
+
+              setCount(currentVal)
+
+              if (progress < 1) {
+                requestAnimationFrame(animate)
+              } else {
+                setCount(target)
+              }
+            }
+
+            requestAnimationFrame(animate)
+            observer.unobserve(el)
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [target, duration])
+
+  const formatted = decimals > 0 ? count.toFixed(decimals).replace('.', ',') : Math.round(count).toString()
+
+  return (
+    <span ref={ref}>
+      {formatted}
+      {suffix}
+    </span>
   )
 }
 
@@ -384,10 +449,56 @@ function RealTimeClock() {
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [showBackToTop, setShowBackToTop] = useState(false)
 
+  // Initialize Lenis smooth scroll
   useEffect(() => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const elements = Array.from(document.querySelectorAll<HTMLElement>('.reveal'))
+    if (reducedMotion) return
+
+    const lenis = new Lenis({
+      duration: 1.1,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    })
+
+    let rafId: number
+    function raf(time: number) {
+      lenis.raf(time)
+      rafId = requestAnimationFrame(raf)
+    }
+    rafId = requestAnimationFrame(raf)
+
+    return () => {
+      cancelAnimationFrame(rafId)
+      lenis.destroy()
+    }
+  }, [])
+
+  // Scroll Progress and Back-to-Top monitor
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
+      setScrollProgress(progress)
+      setShowBackToTop(scrollTop > 350)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Comprehensive IntersectionObserver for all reveal classes
+  useEffect(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const elements = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        '.reveal, .reveal--up, .reveal--down, .reveal--left, .reveal--right, .reveal--scale, .reveal--rotate'
+      )
+    )
 
     if (reducedMotion || !('IntersectionObserver' in window)) {
       elements.forEach((element) => element.classList.add('is-visible'))
@@ -403,7 +514,7 @@ function App() {
           }
         })
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px' },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
     )
 
     elements.forEach((element) => observer.observe(element))
@@ -419,8 +530,19 @@ function App() {
 
   const closeMenu = () => setMenuOpen(false)
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <div className="site-shell">
+      {/* Top Scroll Progress Indicator */}
+      <div
+        className="scroll-progress-bar"
+        style={{ transform: `scaleX(${scrollProgress / 100})` }}
+        aria-hidden="true"
+      />
+
       <a className="skip-link" href="#konten-utama">
         Lewati ke konten utama
       </a>
@@ -441,7 +563,7 @@ function App() {
           ))}
         </nav>
 
-        <a className="topbar__contact" href="https://t.me/Rei219" target="_blank" rel="noreferrer" aria-label="Mari bicara via Telegram @Rei219">
+        <a className="topbar__contact hover-lift" href="https://t.me/Rei219" target="_blank" rel="noreferrer" aria-label="Mari bicara via Telegram @Rei219">
           Mari bicara <ArrowUpRight size={16} aria-hidden="true" />
         </a>
 
@@ -474,49 +596,49 @@ function App() {
       <main id="konten-utama">
         <section id="utama" className="hero" aria-labelledby="hero-title">
           <div className="hero__copy">
-            <div className="hero__topline">
+            <div className="hero__topline reveal--down">
               <p>Portofolio / {new Date().getFullYear()}</p>
               <p>Operasional TI · Software Dev</p>
             </div>
 
-            <div className="hero__content reveal is-visible">
-              <p className="eyebrow">Operasional TI · Software Development · Edukasi</p>
-              <h1 id="hero-title">
+            <div className="hero__content">
+              <p className="eyebrow reveal--up stagger-1">Operasional TI · Software Development · Edukasi</p>
+              <h1 id="hero-title" className="reveal--up stagger-2">
                 Teknologi yang <em>bekerja.</em>
                 <br />
                 Pengalaman yang terasa.
               </h1>
-              <p className="hero__lead">
+              <p className="hero__lead reveal--up stagger-3">
                 Saya Reihan Mutaqin. Saya menggabungkan ketelitian operasional, pengembangan perangkat lunak, dan pengalaman mengajar untuk membuat solusi digital yang jelas dan berguna.
               </p>
-              <div className="hero__actions">
-                <a className="button button--dark" href="#karya">
+              <div className="hero__actions reveal--up stagger-4">
+                <a className="button button--dark hover-lift" href="#karya">
                   Lihat karya <ArrowDown size={18} aria-hidden="true" />
                 </a>
-                <a className="button button--accent" href="/downloads/Portofolio-Reihan-Mutaqin.pdf" download="Portofolio-Reihan-Mutaqin.pdf">
+                <a className="button button--accent hover-lift" href="/downloads/Portofolio-Reihan-Mutaqin.pdf" download="Portofolio-Reihan-Mutaqin.pdf">
                   <Download size={17} aria-hidden="true" /> Portofolio (PDF)
                 </a>
-                <a className="button button--dark" href="/downloads/Portofolio-Reihan-Mutaqin.pptx" download="Portofolio-Reihan-Mutaqin.pptx">
+                <a className="button button--dark hover-lift" href="/downloads/Portofolio-Reihan-Mutaqin.pptx" download="Portofolio-Reihan-Mutaqin.pptx">
                   <Download size={17} aria-hidden="true" /> PPT Portofolio
                 </a>
-                <a className="text-link" href="/downloads/CV-ATS-Reihan-Mutaqin.pdf" download="CV-ATS-Reihan-Mutaqin.pdf">
+                <a className="text-link hover-lift" href="/downloads/CV-ATS-Reihan-Mutaqin.pdf" download="CV-ATS-Reihan-Mutaqin.pdf">
                   <Download size={17} aria-hidden="true" /> CV ATS
                 </a>
               </div>
             </div>
 
-            <div className="hero__footer">
+            <div className="hero__footer reveal--up stagger-5">
               <span>Unity / C# / Web / Data</span>
               <span>Terbuka untuk peluang profesional</span>
             </div>
           </div>
 
-          <div className="hero__portrait" aria-label="Foto Reihan Mutaqin">
+          <div className="hero__portrait reveal--scale stagger-2" aria-label="Foto Reihan Mutaqin">
             <span className="hero__portrait-word" aria-hidden="true">
               REIHAN
             </span>
             <img src="/images/reihan-mutaqin.png" alt="Reihan Mutaqin mengenakan pakaian hitam" />
-            <div className="hero__portrait-caption">
+            <div className="hero__portrait-caption reveal--up stagger-4">
               <span>Reihan Mutaqin</span>
               <span>Indonesia</span>
             </div>
@@ -527,36 +649,44 @@ function App() {
           <SectionHeading number="01" eyebrow="Profil" title="Berpikir terstruktur. Membuat dengan tujuan." />
 
           <div className="profile-grid">
-            <div className="profile-grid__statement reveal">
+            <div className="profile-grid__statement reveal--left">
               <p>
                 Saya bekerja di persimpangan antara <strong>operasional TI</strong>, <strong>pengembangan produk digital</strong>, dan <strong>pembelajaran teknologi</strong>.
               </p>
             </div>
-            <div className="profile-grid__body reveal">
-              <p>
+            <div className="profile-grid__body reveal--right">
+              <p className="reveal--right stagger-1">
                 Lulusan Pendidikan Teknologi Informasi Universitas Bina Bangsa dengan IPK 3,96/4,00 dan predikat lulusan terbaik program studi. Pengalaman saya mencakup rekonsiliasi data layanan, pemantauan order, pelaporan operasional, pengembangan aplikasi Unity dan web, serta pengajaran informatika.
               </p>
-              <p>
+              <p className="reveal--right stagger-2">
                 Saya terbiasa menerjemahkan kebutuhan teknis menjadi pekerjaan yang runtut—mulai dari memahami masalah, membangun solusi, menguji hasil, sampai menyampaikan informasi secara mudah dipahami.
               </p>
             </div>
           </div>
 
-          <div className="profile-stats reveal" aria-label="Ringkasan profil">
-            <div>
-              <strong>3,96</strong>
+          <div className="profile-stats reveal--scale stagger-2" aria-label="Ringkasan profil">
+            <div className="hover-lift">
+              <strong>
+                <AnimatedCounter target={3.96} decimals={2} />
+              </strong>
               <span>IPK dari 4,00</span>
             </div>
-            <div>
-              <strong>17+</strong>
+            <div className="hover-lift">
+              <strong>
+                <AnimatedCounter target={17} suffix="+" />
+              </strong>
               <span>Proyek pilihan</span>
             </div>
-            <div>
-              <strong>2022</strong>
+            <div className="hover-lift">
+              <strong>
+                <AnimatedCounter target={2022} duration={1800} />
+              </strong>
               <span>Mulai freelance</span>
             </div>
-            <div>
-              <strong>550</strong>
+            <div className="hover-lift">
+              <strong>
+                <AnimatedCounter target={550} />
+              </strong>
               <span>Skor TOEFL</span>
             </div>
           </div>
@@ -566,8 +696,12 @@ function App() {
           <SectionHeading number="02" eyebrow="Pengalaman" title="Pengalaman lintas operasi, pengembangan, dan pendidikan." />
 
           <div className="experience-list">
-            {experiences.map((experience) => (
-              <article className="experience reveal" key={`${experience.company}-${experience.period}`}>
+            {experiences.map((experience, index) => (
+              <article
+                className="experience reveal--up"
+                key={`${experience.company}-${experience.period}`}
+                style={{ transitionDelay: `${index * 80}ms` }}
+              >
                 <p className="experience__period">{experience.period}</p>
                 <div className="experience__title">
                   <h3>{experience.role}</h3>
@@ -590,8 +724,13 @@ function App() {
             {projects.map((project, index) => (
               <article
                 key={project.title}
-                className={`project reveal ${project.wide ? 'project--wide' : ''}`}
-                style={{ '--project-accent': project.accent } as CSSProperties}
+                className={`project reveal--scale ${project.wide ? 'project--wide' : ''}`}
+                style={
+                  {
+                    '--project-accent': project.accent,
+                    transitionDelay: `${(index % 4) * 90}ms`,
+                  } as CSSProperties
+                }
               >
                 <div className="project__visual">
                   <span className="project__index">{String(index + 1).padStart(2, '0')}</span>
@@ -606,7 +745,7 @@ function App() {
                 <div className="project__footer">
                   <span>{project.tags.join(' / ')}</span>
                   {project.link ? (
-                    <a href={project.link} target="_blank" rel="noreferrer" aria-label={`Buka ${project.title} di tab baru`}>
+                    <a className="hover-lift" href={project.link} target="_blank" rel="noreferrer" aria-label={`Buka ${project.title} di tab baru`}>
                       Buka proyek <ArrowUpRight size={16} aria-hidden="true" />
                     </a>
                   ) : (
@@ -622,8 +761,12 @@ function App() {
           <SectionHeading number="04" eyebrow="Keahlian" title="Fondasi teknis yang ditopang komunikasi yang baik." />
 
           <div className="skill-list">
-            {skillGroups.map((group) => (
-              <article className="skill-row reveal" key={group.number}>
+            {skillGroups.map((group, index) => (
+              <article
+                className="skill-row reveal--left"
+                key={group.number}
+                style={{ transitionDelay: `${index * 110}ms` }}
+              >
                 <span>{group.number}</span>
                 <h3>{group.title}</h3>
                 <p>{group.description}</p>
@@ -632,26 +775,26 @@ function App() {
           </div>
 
           <div className="credentials-grid">
-            <div className="credential reveal">
+            <div className="credential reveal--scale" style={{ transitionDelay: '0ms' }}>
               <p className="credential__label">Pendidikan</p>
               <h3>Universitas Bina Bangsa</h3>
               <p>Pendidikan Teknologi Informasi · 2020–2024</p>
               <p>IPK 3,96/4,00 · Lulusan Terbaik Program Studi 2024</p>
               <p>TOEFL Pusat Bahasa Universitas Bina Bangsa · 550</p>
             </div>
-            <div className="credential reveal">
+            <div className="credential reveal--scale" style={{ transitionDelay: '100ms' }}>
               <p className="credential__label">Dasar teknis</p>
               <h3>SMKN 1 Pandeglang</h3>
               <p>Teknik Komputer dan Jaringan · 2017–2020</p>
               <p>Kompetensi Kejuruan Hardware, Jaringan & Troubleshooting</p>
             </div>
-            <div className="credential reveal">
+            <div className="credential reveal--scale" style={{ transitionDelay: '200ms' }}>
               <p className="credential__label">Organisasi</p>
               <h3>Himpunan Mahasiswa PTI</h3>
               <p>Wakil Ketua · Jun 2022–Jun 2023</p>
               <p>Ketua Divisi IT · Jun 2021–Jun 2022</p>
             </div>
-            <div className="credential reveal">
+            <div className="credential reveal--scale" style={{ transitionDelay: '300ms' }}>
               <p className="credential__label">Kontribusi</p>
               <h3>Inovasi Teknologi Pendidikan Indonesia</h3>
               <p>Okt 2025–Februari 2026</p>
@@ -661,13 +804,13 @@ function App() {
         </section>
 
         <section id="kontak" className="contact-section">
-          <div className="contact-section__top reveal">
-            <p className="eyebrow">Punya tantangan untuk diselesaikan?</p>
-            <h2>Mari membuat sesuatu yang benar-benar berguna.</h2>
+          <div className="contact-section__top reveal--up">
+            <p className="eyebrow reveal--up stagger-1">Punya tantangan untuk diselesaikan?</p>
+            <h2 className="reveal--up stagger-2">Mari membuat sesuatu yang benar-benar berguna.</h2>
           </div>
 
-          <div className="contact-grid reveal">
-            <a href="https://t.me/Rei219" target="_blank" rel="noreferrer">
+          <div className="contact-grid reveal--scale stagger-2">
+            <a className="hover-lift" href="https://t.me/Rei219" target="_blank" rel="noreferrer">
               <TelegramIcon size={24} />
               <span>
                 <small>Telegram</small>
@@ -675,7 +818,7 @@ function App() {
               </span>
               <ArrowUpRight aria-hidden="true" />
             </a>
-            <a href="mailto:reyhanmutakin1@gmail.com">
+            <a className="hover-lift" href="mailto:reyhanmutakin1@gmail.com">
               <Mail aria-hidden="true" />
               <span>
                 <small>Email</small>
@@ -683,7 +826,7 @@ function App() {
               </span>
               <ArrowUpRight aria-hidden="true" />
             </a>
-            <a href="tel:+6282111039958">
+            <a className="hover-lift" href="tel:+6282111039958">
               <Phone aria-hidden="true" />
               <span>
                 <small>Telepon / WhatsApp</small>
@@ -691,7 +834,7 @@ function App() {
               </span>
               <ArrowUpRight aria-hidden="true" />
             </a>
-            <div className="contact-grid__location">
+            <div className="contact-grid__location hover-lift">
               <MapPin aria-hidden="true" />
               <span>
                 <small>Domisili</small>
@@ -700,30 +843,30 @@ function App() {
             </div>
           </div>
 
-          <div className="contact-actions reveal">
-            <a className="button button--light" href="/downloads/Portofolio-Reihan-Mutaqin.pdf" download="Portofolio-Reihan-Mutaqin.pdf">
+          <div className="contact-actions reveal--up stagger-3">
+            <a className="button button--light hover-lift" href="/downloads/Portofolio-Reihan-Mutaqin.pdf" download="Portofolio-Reihan-Mutaqin.pdf">
               <Download size={18} aria-hidden="true" /> Unduh Portofolio (PDF)
             </a>
-            <a className="button button--light" href="/downloads/Portofolio-Reihan-Mutaqin.pptx" download="Portofolio-Reihan-Mutaqin.pptx">
+            <a className="button button--light hover-lift" href="/downloads/Portofolio-Reihan-Mutaqin.pptx" download="Portofolio-Reihan-Mutaqin.pptx">
               <Download size={18} aria-hidden="true" /> Unduh Presentasi (PPTX)
             </a>
-            <a className="button button--dark" href="/downloads/CV-ATS-Reihan-Mutaqin.pdf" download="CV-ATS-Reihan-Mutaqin.pdf">
+            <a className="button button--dark hover-lift" href="/downloads/CV-ATS-Reihan-Mutaqin.pdf" download="CV-ATS-Reihan-Mutaqin.pdf">
               <Download size={18} aria-hidden="true" /> CV ATS (PDF)
             </a>
-            <a className="text-link text-link--light" href="/downloads/CV-ATS-Reihan-Mutaqin.docx" download="CV-ATS-Reihan-Mutaqin.docx">
+            <a className="text-link text-link--light hover-lift" href="/downloads/CV-ATS-Reihan-Mutaqin.docx" download="CV-ATS-Reihan-Mutaqin.docx">
               Versi Word
             </a>
           </div>
 
-          <div className="contact-footer">
+          <div className="contact-footer reveal--up stagger-4">
             <div className="contact-socials" aria-label="Media profesional">
-              <a href="https://t.me/Rei219" target="_blank" rel="noreferrer" className="social-pill">
+              <a href="https://t.me/Rei219" target="_blank" rel="noreferrer" className="social-pill hover-lift">
                 <TelegramIcon size={18} /> Telegram
               </a>
-              <a href="https://github.com/ReihanMutaqin" target="_blank" rel="noreferrer" className="social-pill">
+              <a href="https://github.com/ReihanMutaqin" target="_blank" rel="noreferrer" className="social-pill hover-lift">
                 <Github size={18} aria-hidden="true" /> GitHub
               </a>
-              <a href="https://www.linkedin.com/in/reihan-mutaqin-351169201/" target="_blank" rel="noreferrer" className="social-pill">
+              <a href="https://www.linkedin.com/in/reihan-mutaqin-351169201/" target="_blank" rel="noreferrer" className="social-pill hover-lift">
                 <Linkedin size={18} aria-hidden="true" /> LinkedIn
               </a>
             </div>
@@ -731,6 +874,17 @@ function App() {
           </div>
         </section>
       </main>
+
+      {/* Floating Back to Top Button */}
+      <button
+        className={`back-to-top ${showBackToTop ? 'is-visible' : ''}`}
+        onClick={scrollToTop}
+        type="button"
+        aria-label="Kembali ke atas halaman"
+        title="Kembali ke atas"
+      >
+        <ArrowUp size={20} aria-hidden="true" />
+      </button>
     </div>
   )
 }

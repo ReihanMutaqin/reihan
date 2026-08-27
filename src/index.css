@@ -461,13 +461,34 @@ ul {
 }
 
 .section-heading {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 14px;
   padding-bottom: clamp(28px, 3.5vw, 48px);
-  border-top: 1px solid var(--ink);
   padding-top: 24px;
   margin-bottom: clamp(24px, 3vw, 40px);
+}
+
+.section-heading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--ink);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section--projects .section-heading::before {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.has-js .section-heading.is-visible::before {
+  transform: scaleX(1);
 }
 
 .section-heading__meta {
@@ -1017,15 +1038,235 @@ ul {
   color: var(--paper);
 }
 
-.has-js .reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 700ms ease, transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+/* Lenis Smooth Scroll Recommended Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
-.has-js .reveal.is-visible {
+/* Scroll Progress Bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, var(--orange) 0%, var(--yellow) 50%, #7c3aed 100%);
+  transform-origin: 0% 50%;
+  z-index: 99999;
+  pointer-events: none;
+  box-shadow: 0 0 12px rgba(233, 93, 50, 0.45);
+  transition: transform 50ms linear;
+}
+
+/* Back to Top Floating Button */
+.back-to-top {
+  position: fixed;
+  bottom: clamp(20px, 3.5vw, 36px);
+  right: clamp(20px, 3.5vw, 36px);
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid rgba(243, 239, 229, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px) scale(0.85);
+  pointer-events: none;
+  transition: opacity 300ms cubic-bezier(0.16, 1, 0.3, 1), transform 300ms cubic-bezier(0.16, 1, 0.3, 1), background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: var(--orange);
+  color: #fff;
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 12px 28px rgba(233, 93, 50, 0.4);
+}
+
+/* Scroll Animation Base Transitions */
+.has-js .reveal,
+.has-js .reveal--up,
+.has-js .reveal--down,
+.has-js .reveal--left,
+.has-js .reveal--right,
+.has-js .reveal--scale,
+.has-js .reveal--rotate {
+  will-change: opacity, transform, filter;
+  transition-property: opacity, transform, filter;
+  transition-duration: 800ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reveal Up (Default) */
+.has-js .reveal,
+.has-js .reveal--up {
+  opacity: 0;
+  transform: translateY(36px);
+  filter: blur(4px);
+}
+
+.has-js .reveal.is-visible,
+.has-js .reveal--up.is-visible {
   opacity: 1;
   transform: translateY(0);
+  filter: blur(0px);
+}
+
+/* Reveal Down */
+.has-js .reveal--down {
+  opacity: 0;
+  transform: translateY(-30px);
+  filter: blur(4px);
+}
+
+.has-js .reveal--down.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+}
+
+/* Reveal Left */
+.has-js .reveal--left {
+  opacity: 0;
+  transform: translateX(-40px);
+  filter: blur(4px);
+}
+
+.has-js .reveal--left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0px);
+}
+
+/* Reveal Right */
+.has-js .reveal--right {
+  opacity: 0;
+  transform: translateX(40px);
+  filter: blur(4px);
+}
+
+.has-js .reveal--right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0px);
+}
+
+/* Reveal Scale / Zoom In */
+.has-js .reveal--scale {
+  opacity: 0;
+  transform: scale(0.92);
+  filter: blur(5px);
+}
+
+.has-js .reveal--scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0px);
+}
+
+/* Reveal 3D Rotate */
+.has-js .reveal--rotate {
+  opacity: 0;
+  transform: perspective(1000px) rotateX(10deg) translateY(30px);
+  filter: blur(4px);
+}
+
+.has-js .reveal--rotate.is-visible {
+  opacity: 1;
+  transform: perspective(1000px) rotateX(0deg) translateY(0);
+  filter: blur(0px);
+}
+
+/* Stagger Utilities */
+.has-js .stagger-1 { transition-delay: 80ms; }
+.has-js .stagger-2 { transition-delay: 160ms; }
+.has-js .stagger-3 { transition-delay: 240ms; }
+.has-js .stagger-4 { transition-delay: 320ms; }
+.has-js .stagger-5 { transition-delay: 400ms; }
+.has-js .stagger-6 { transition-delay: 480ms; }
+.has-js .stagger-7 { transition-delay: 560ms; }
+.has-js .stagger-8 { transition-delay: 640ms; }
+
+/* Micro-interactions and Hover Effects */
+.hover-lift {
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+}
+
+.project {
+  transition: transform 450ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project:hover {
+  transform: translateY(-6px);
+}
+
+.project__visual img {
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1), filter 400ms ease;
+}
+
+.project:hover .project__visual img {
+  transform: scale(1.045) translateY(-3px);
+}
+
+.experience {
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300ms ease;
+}
+
+.experience:hover {
+  transform: translateX(8px);
+}
+
+.credential {
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms ease, box-shadow 350ms ease;
+}
+
+.credential:hover {
+  transform: translateY(-4px);
+  border-color: var(--ink);
+  box-shadow: 0 12px 30px rgba(21, 21, 21, 0.08);
+}
+
+.skill-row {
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-row:hover {
+  transform: translateX(10px);
+}
+
+.social-pill {
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), background-color 250ms ease, color 250ms ease;
+}
+
+.social-pill:hover {
+  transform: translateY(-3px) scale(1.04);
 }
 
 @media (max-width: 1120px) {
