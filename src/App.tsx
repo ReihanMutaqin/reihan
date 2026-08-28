@@ -406,184 +406,30 @@ const publications: Publication[] = [
 ]
 
 function SintaBadge({ level }: { level: 3 | 4 | 5 }) {
-  const levelColors = {
-    3: { bg: '#0284c7', ring: '#0369a1', num: '3' },
-    4: { bg: '#00a8cc', ring: '#086788', num: '4' },
-    5: { bg: '#0284c7', ring: '#075985', num: '5' },
-  }[level]
-
   return (
-    <div className="official-sinta-badge" title={`Terakreditasi SINTA ${level} Kemdiktisaintek RI`}>
-      <svg
-        viewBox="0 0 204 66"
-        width="168"
-        height="54"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="official-sinta-badge__svg"
-      >
-        {/* Outer Chamfered Border Frame */}
-        <polygon
-          points="10,2 192,2 202,12 202,64 12,64 2,54 2,2"
-          fill="#ffffff"
-          stroke="#64748b"
-          strokeWidth="2"
-        />
-        <polygon
-          points="12,5 190,5 199,14 199,61 14,61 5,52 5,5"
-          fill="none"
-          stroke="#cbd5e1"
-          strokeWidth="1.2"
-        />
-
-        {/* Left Wayang Emblem Circle */}
-        <g transform="translate(15, 12)">
-          <circle cx="21" cy="21" r="20" fill="#0b4a5d" />
-          {/* Wayang Headgear / Profile Silhouette */}
-          <path
-            d="M13 28 C12 24 14 20 17 18 C19 16 22 16 24 18 C26 14 29 14 32 16 C34 18 34 21 33 24 C31 27 28 29 25 30 C22 31 17 31 13 28 Z"
-            fill="#ffffff"
-            opacity="0.95"
-          />
-          <path
-            d="M21 9 C25 8 29 11 31 15 C33 19 33 23 30 27 C28 29 25 31 22 32 C20 30 20 27 22 25 C23 23 25 22 25 20 C25 18 23 17 21 17 C19 17 17 19 18 21 C18 23 17 24 15 24 C14 24 13 23 13 21 C13 18 16 14 18 12 C19 10 20 9 21 9 Z"
-            fill="#ffffff"
-          />
-          <path
-            d="M14 22 C13 23 11 24 10 26 C9 28 10 30 12 31 C13 32 15 32 16 31 C17 30 17 28 16 27 C15 26 15 24 16 23 Z"
-            fill="#ffffff"
-          />
-          <path
-            d="M18 32 L18 38 L25 38 L25 35 C23 35 20 34 18 32 Z"
-            fill="#ffffff"
-          />
-          <circle cx="23" cy="21" r="3.5" fill="#0b4a5d" stroke="#ffffff" strokeWidth="1.2" />
-        </g>
-
-        {/* Middle Typography: sinta */}
-        <g transform="translate(70, 13)">
-          {/* 's' */}
-          <text x="0" y="27" fill="#0b4a5d" fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Montserrat', sans-serif" fontWeight="900" fontSize="27" letterSpacing="-1">s</text>
-          
-          {/* 'i' stem without dot */}
-          <text x="14.5" y="27" fill="#0b4a5d" fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Montserrat', sans-serif" fontWeight="900" fontSize="27" letterSpacing="-1">ı</text>
-          
-          {/* Graduation Hat on 'i' */}
-          <g transform="translate(16, 2.5)">
-            <path d="M-6 4.5 L4.5 0.5 L15 4.5 L4.5 8.5 Z" fill="#0b4a5d" />
-            <path d="M-0.5 6 L4.5 8.2 L9.5 6 L9.5 9 C9.5 10.2 7 11.2 4.5 11.2 C2 11.2 -0.5 10.2 -0.5 9 Z" fill="#0b4a5d" />
-            {/* Tassel */}
-            <path d="M-4 5.2 L-7 8.5 L-6.5 12" stroke="#0b4a5d" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-          </g>
-
-          {/* 'nta' */}
-          <text x="24" y="27" fill="#0b4a5d" fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Montserrat', sans-serif" fontWeight="900" fontSize="27" letterSpacing="-1">nta</text>
-
-          {/* Subtitle: Science and Technology Index */}
-          <text x="0" y="38" fill="#e67e22" fontFamily="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" fontWeight="800" fontSize="6.4" letterSpacing="0.2">
-            Science and Technology Index
-          </text>
-        </g>
-
-        {/* Right Number Badge Circle (3, 4, 5) */}
-        <g transform="translate(158, 13)">
-          {/* 3D Drop Shadow Ring */}
-          <circle cx="21" cy="21" r="18" fill="#083344" />
-          {/* Outer Border */}
-          <circle cx="20" cy="20" r="17" fill={levelColors.bg} stroke="#ffffff" strokeWidth="1.5" />
-          {/* Inner Highlight Ring */}
-          <circle cx="20" cy="20" r="14.5" fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth="1.2" />
-          {/* Number */}
-          <text
-            x="20"
-            y="27"
-            textAnchor="middle"
-            fill="#ffffff"
-            fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Montserrat', 'Arial Black', sans-serif"
-            fontWeight="900"
-            fontSize="22"
-          >
-            {levelColors.num}
-          </text>
-        </g>
-      </svg>
+    <div className={`official-sinta-badge-img official-sinta-badge-img--s${level}`} title={`Terakreditasi SINTA ${level} Kemdiktisaintek RI`}>
+      <img
+        src={`/images/sinta/sinta-${level}.png`}
+        alt={`Logo Resmi SINTA ${level}`}
+        className="official-sinta-badge-img__el"
+        loading="lazy"
+      />
     </div>
   )
 }
 
 function ProsidingBadge({ label = 'Prosiding Seminar Nasional' }: { label?: string }) {
   return (
-    <div className="official-sinta-badge official-sinta-badge--prosiding" title={label}>
-      <svg
-        viewBox="0 0 204 66"
-        width="168"
-        height="54"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="official-sinta-badge__svg"
-      >
-        <polygon
-          points="10,2 192,2 202,12 202,64 12,64 2,54 2,2"
-          fill="#ffffff"
-          stroke="#64748b"
-          strokeWidth="2"
-        />
-        <polygon
-          points="12,5 190,5 199,14 199,61 14,61 5,52 5,5"
-          fill="none"
-          stroke="#cbd5e1"
-          strokeWidth="1.2"
-        />
-
-        <g transform="translate(15, 12)">
-          <circle cx="21" cy="21" r="20" fill="#334155" />
-          <path
-            d="M12 14 L21 18 L30 14 L30 27 L21 31 L12 27 Z"
-            fill="none"
-            stroke="#ffffff"
-            strokeWidth="1.8"
-            strokeLinejoin="round"
-          />
-          <path d="M21 18 L21 31" stroke="#ffffff" strokeWidth="1.8" />
-        </g>
-
-        <g transform="translate(68, 16)">
-          <text x="0" y="21" fill="#0f172a" fontFamily="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" fontWeight="900" fontSize="16" letterSpacing="0.5">
-            PROSIDING
-          </text>
-          <text x="0" y="33" fill="#64748b" fontFamily="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" fontWeight="800" fontSize="6.5" letterSpacing="0.2">
-            Seminar Nasional LPPM
-          </text>
-        </g>
-
-        <g transform="translate(158, 13)">
-          <circle cx="21" cy="21" r="18" fill="#0f172a" />
-          <circle cx="20" cy="20" r="17" fill="#475569" stroke="#ffffff" strokeWidth="1.5" />
-          <text
-            x="20"
-            y="23"
-            textAnchor="middle"
-            fill="#ffffff"
-            fontFamily="system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
-            fontWeight="900"
-            fontSize="9"
-            letterSpacing="0.5"
-          >
-            SEM
-          </text>
-          <text
-            x="20"
-            y="32"
-            textAnchor="middle"
-            fill="#38bdf8"
-            fontFamily="system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
-            fontWeight="900"
-            fontSize="8.5"
-          >
-            NAS
-          </text>
-        </g>
-      </svg>
+    <div className="official-sinta-badge-img official-sinta-badge-img--prosiding" title={label}>
+      <div className="prosiding-badge-box">
+        <span className="prosiding-badge-box__icon">
+          <BookOpen size={16} aria-hidden="true" />
+        </span>
+        <div className="prosiding-badge-box__content">
+          <span className="prosiding-badge-box__title">PROSIDING</span>
+          <span className="prosiding-badge-box__sub">Seminar Nasional</span>
+        </div>
+      </div>
     </div>
   )
 }

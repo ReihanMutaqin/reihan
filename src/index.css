@@ -989,24 +989,82 @@ ul {
   margin-bottom: 16px;
 }
 
-/* Official SINTA Accreditation Badge (Exact Official Vector / OJS replica) */
-.official-sinta-badge {
+/* Official SINTA Image Badge (Official PNG Assets) */
+.official-sinta-badge-img {
   display: inline-flex;
   align-items: center;
-  filter: drop-shadow(2.5px 2.5px 0 var(--ink));
-  transition: transform 180ms ease, filter 180ms ease;
   user-select: none;
+  transition: transform 180ms ease, filter 180ms ease;
+  filter: drop-shadow(2px 2px 0 var(--ink));
 }
 
-.official-sinta-badge:hover {
+.official-sinta-badge-img:hover {
   transform: translateY(-2px);
   filter: drop-shadow(4px 4px 0 var(--ink));
 }
 
-.official-sinta-badge__svg {
+.official-sinta-badge-img__el {
   display: block;
-  max-width: 168px;
-  height: auto;
+  height: 44px;
+  width: auto;
+  max-width: 170px;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+/* SINTA 3 specific framing for consistent height and card background */
+.official-sinta-badge-img--s3 .official-sinta-badge-img__el {
+  height: 44px;
+  background: #ffffff;
+  padding: 3px 6px;
+  border: 1.5px solid #64748b;
+  border-radius: 4px;
+}
+
+/* Prosiding Card Badge */
+.official-sinta-badge-img--prosiding {
+  background: #ffffff;
+  border: 1.5px solid #64748b;
+  border-radius: 4px;
+  padding: 4px 10px;
+  min-height: 44px;
+}
+
+.prosiding-badge-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prosiding-badge-box__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  background: #334155;
+  color: #ffffff;
+}
+
+.prosiding-badge-box__content {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.prosiding-badge-box__title {
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #0f172a;
+}
+
+.prosiding-badge-box__sub {
+  font-size: 0.58rem;
+  font-weight: 750;
+  color: #64748b;
+  letter-spacing: 0.02em;
 }
 
 .publication-card__badge {
