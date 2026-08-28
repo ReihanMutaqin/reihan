@@ -5,8 +5,10 @@ import {
   ArrowDown,
   ArrowUp,
   ArrowUpRight,
+  BookOpen,
   Download,
   Github,
+  GraduationCap,
   Linkedin,
   Mail,
   MapPin,
@@ -34,10 +36,23 @@ type Experience = {
   details: string[]
 }
 
+type Publication = {
+  title: string
+  journal: string
+  year: string
+  category: string
+  description: string
+  authors: string
+  link: string
+  badge: string
+  accent?: string
+}
+
 const navigation = [
   { label: 'Profil', href: '#profil' },
   { label: 'Pengalaman', href: '#pengalaman' },
   { label: 'Karya', href: '#karya' },
+  { label: 'Publikasi', href: '#publikasi' },
   { label: 'Keahlian', href: '#keahlian' },
   { label: 'Kontak', href: '#kontak' },
 ]
@@ -304,6 +319,81 @@ const skillGroups = [
     title: 'Edukasi & Kolaborasi',
     description:
       'Pengajaran teknis, penyusunan modul, komunikasi, kerja tim, manajemen waktu, koordinasi proyek, Figma, dan Canva.',
+  },
+]
+
+const publications: Publication[] = [
+  {
+    title: 'Perancangan Augmented Reality (AR) Book Dasar Komputer pada Mata Pelajaran Informatika Kelas X TJKT 2 di SMK Negeri 1 Pandeglang',
+    journal: 'ISLAMIKA: Jurnal Keislaman dan Ilmu Pendidikan',
+    year: '2025',
+    category: 'Augmented Reality & Media Edukasi',
+    description:
+      'Pengembangan buku ajar interaktif 3D berbasis Augmented Reality (AR) menggunakan engine Unity dan Vuforia dengan metode Multimedia Development Life Cycle (MDLC) guna meningkatkan pemahaman siswa pada mata pelajaran Informatika.',
+    authors: 'Reihan Mutaqin, dkk.',
+    badge: 'Jurnal Nasional Terindeks',
+    link: 'https://scholar.google.com/citations?user=ZcbqktkAAAAJ&hl=id',
+    accent: '#e95d32',
+  },
+  {
+    title: 'Analisis Penggunaan Chat GPT (AI) dan Modul Pemrograman Terhadap Motivasi Belajar dan Kreativitas Mahasiswa dalam Mata Kuliah Pemrograman',
+    journal: 'Jurnal Saintifik (Multi Science Journal)',
+    year: '2024',
+    category: 'Artificial Intelligence in Education',
+    description:
+      'Penelitian evaluasi dampak integrasi Large Language Model (ChatGPT AI) terhadap motivasi belajar, kreativitas pemecahan masalah algoritma, serta kemandirian eksplorasi coding mahasiswa program studi Pendidikan Teknologi Informasi.',
+    authors: 'Reihan Mutaqin, dkk.',
+    badge: 'Peer-Reviewed Journal',
+    link: 'https://scholar.google.com/citations?user=ZcbqktkAAAAJ&hl=id',
+    accent: '#f2c94c',
+  },
+  {
+    title: 'Exploring the Use of ChatGPT 3.5 in the Development of Rootine Website Front End',
+    journal: 'ResearchGate & Academic Proceedings',
+    year: '2024',
+    category: 'Software Engineering & AI Dev',
+    description:
+      'Kajian implementasi AI-assisted software engineering (ChatGPT 3.5) dalam mempercepat prototyping antarmuka, pembuatan stylesheet responsif, serta optimasi komponen front-end website pertanian cerdas Rootine.',
+    authors: 'Reihan Mutaqin, dkk.',
+    badge: 'Research Paper',
+    link: 'https://scholar.google.com/citations?user=ZcbqktkAAAAJ&hl=id',
+    accent: '#06b6d4',
+  },
+  {
+    title: 'Pelatihan Pembuatan Media Pembelajaran Berbasis WordPress Menggunakan Plugin H5P',
+    journal: 'SEWAGATI / Jurnal Pengabdian Masyarakat Indonesia',
+    year: '2024',
+    category: 'Pengabdian Masyarakat & Edukasi',
+    description:
+      'Pemberdayaan guru dan siswa jurusan TJKT di SMKN 1 Pandeglang melalui pelatihan pembuatan konten pembelajaran interaktif multimedia (kuis interaktif, modul digital, video berbasis H5P) pada CMS WordPress.',
+    authors: 'Reihan Mutaqin, dkk.',
+    badge: 'Pengabdian Masyarakat (PkM)',
+    link: 'https://scholar.google.com/citations?user=ZcbqktkAAAAJ&hl=id',
+    accent: '#10b981',
+  },
+  {
+    title: 'Membangun Soft Skill dan Hard Skill Siswa SMK pada Era Digital',
+    journal: 'SEWAGATI: Jurnal Pengabdian Masyarakat Indonesia',
+    year: '2024',
+    category: 'Pendidikan Vokasi & Literasi Digital',
+    description:
+      'Strategi integrasi kompetensi teknis kejuruan (hard skill) dan kemampuan komunikasi adaptif serta kolaborasi tim (soft skill) untuk meningkatkan kesiapan kerja lulusan SMK di era transformasi digital.',
+    authors: 'Reihan Mutaqin, dkk.',
+    badge: 'Pengabdian Masyarakat (PkM)',
+    link: 'https://scholar.google.com/citations?user=ZcbqktkAAAAJ&hl=id',
+    accent: '#7c3aed',
+  },
+  {
+    title: 'Pembuatan Website Pelayanan Pemerintahan Desa Sukalaba',
+    journal: 'Nusantara: Jurnal Pengabdian Kepada Masyarakat',
+    year: '2023',
+    category: 'Digitalisasi Layanan Publik',
+    description:
+      'Perancangan dan implementasi website portal pelayanan administrasi desa guna mendukung transparansi data publik, publikasi agenda desa, serta mempermudah pengajuan permohonan layanan bagi warga.',
+    authors: 'Reihan Mutaqin, dkk.',
+    badge: 'Publikasi Pengabdian',
+    link: 'https://scholar.google.com/citations?user=ZcbqktkAAAAJ&hl=id',
+    accent: '#0284c7',
   },
 ]
 
@@ -805,8 +895,91 @@ function App() {
           </div>
         </section>
 
+        <section id="publikasi" className="section section--publications">
+          <SectionHeading
+            number="04"
+            eyebrow="Publikasi & Jurnal Ilmiah"
+            title="Penelitian dan kontribusi akademik di bidang AI, AR, dan teknologi pendidikan."
+          />
+
+          <div className="scholar-hero reveal--scale" style={{ '--stagger': '0ms' } as CSSProperties}>
+            <div className="scholar-hero__info">
+              <div className="scholar-hero__badge">
+                <GraduationCap size={18} aria-hidden="true" /> Google Scholar Profile
+              </div>
+              <h3>Reihan Mutaqin</h3>
+              <p className="scholar-hero__sub">Pendidikan Teknologi Informasi · Universitas Bina Bangsa</p>
+              <div className="scholar-hero__stats">
+                <div className="scholar-stat">
+                  <span className="scholar-stat__num">
+                    <AnimatedCounter target={7} suffix="+" />
+                  </span>
+                  <span className="scholar-stat__label">Kutipan Ilmiah (Citations)</span>
+                </div>
+                <div className="scholar-stat">
+                  <span className="scholar-stat__num">
+                    <AnimatedCounter target={6} />
+                  </span>
+                  <span className="scholar-stat__label">Artikel / Jurnal Terindeks</span>
+                </div>
+                <div className="scholar-stat">
+                  <span className="scholar-stat__num">2023–2025</span>
+                  <span className="scholar-stat__label">Tahun Riset Aktif</span>
+                </div>
+              </div>
+            </div>
+            <a
+              className="button button--dark hover-lift scholar-hero__cta"
+              href="https://scholar.google.com/citations?user=ZcbqktkAAAAJ&hl=id"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Buka profil Google Scholar Reihan Mutaqin"
+            >
+              Lihat Google Scholar <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+          </div>
+
+          <div className="publications-grid">
+            {publications.map((pub, index) => (
+              <article
+                key={pub.title}
+                className="publication-card reveal--scale"
+                style={
+                  {
+                    '--pub-accent': pub.accent || 'var(--orange)',
+                    '--stagger': `${(index % 4) * 80}ms`,
+                  } as CSSProperties
+                }
+              >
+                <div className="publication-card__header">
+                  <span className="publication-card__badge">{pub.badge}</span>
+                  <span className="publication-card__year">{pub.year}</span>
+                </div>
+                <h3 className="publication-card__title">{pub.title}</h3>
+                <p className="publication-card__journal">
+                  <BookOpen size={15} aria-hidden="true" />
+                  <span>{pub.journal}</span>
+                </p>
+                <p className="publication-card__desc">{pub.description}</p>
+                <div className="publication-card__footer">
+                  <span className="publication-card__authors">{pub.authors}</span>
+                  <a
+                    className="publication-card__link hover-lift"
+                    href={pub.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Buka jurnal ${pub.title}`}
+                  >
+                    Buka Dokumen <ArrowUpRight size={14} aria-hidden="true" />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section id="keahlian" className="section section--skills">
-          <SectionHeading number="04" eyebrow="Keahlian" title="Fondasi teknis yang ditopang komunikasi yang baik." />
+          <SectionHeading number="05" eyebrow="Keahlian" title="Fondasi teknis yang ditopang komunikasi yang baik." />
 
           <div className="skill-list">
             {skillGroups.map((group, index) => (
@@ -916,6 +1089,9 @@ function App() {
               </a>
               <a href="https://www.linkedin.com/in/reihan-mutaqin-351169201/" target="_blank" rel="noreferrer" className="social-pill hover-lift">
                 <Linkedin size={18} aria-hidden="true" /> LinkedIn
+              </a>
+              <a href="https://scholar.google.com/citations?user=ZcbqktkAAAAJ&hl=id" target="_blank" rel="noreferrer" className="social-pill hover-lift">
+                <GraduationCap size={18} aria-hidden="true" /> Google Scholar
               </a>
             </div>
             <p>© {new Date().getFullYear()} Reihan Mutaqin</p>
