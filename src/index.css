@@ -989,85 +989,24 @@ ul {
   margin-bottom: 16px;
 }
 
-/* Official SINTA Accreditation Badge */
-.sinta-badge {
+/* Official SINTA Accreditation Badge (Exact Official Vector / OJS replica) */
+.official-sinta-badge {
   display: inline-flex;
   align-items: center;
-  border-radius: 4px;
-  overflow: hidden;
-  border: 1.5px solid var(--ink);
-  box-shadow: 2.5px 2.5px 0 var(--ink);
-  line-height: 1;
+  filter: drop-shadow(2.5px 2.5px 0 var(--ink));
+  transition: transform 180ms ease, filter 180ms ease;
   user-select: none;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-.sinta-badge:hover {
-  transform: translateY(-1px);
-  box-shadow: 3.5px 3.5px 0 var(--ink);
+.official-sinta-badge:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(4px 4px 0 var(--ink));
 }
 
-.sinta-badge__brand {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 8px;
-  background: #ffffff;
-  color: #0f172a;
-  font-weight: 900;
-  font-size: 0.8rem;
-  letter-spacing: -0.04em;
-  border-right: 1.5px solid var(--ink);
-}
-
-.sinta-badge__s,
-.sinta-badge__nta {
-  color: #0f172a;
-  font-weight: 900;
-}
-
-.sinta-badge__i {
-  color: #dc2626;
-  font-weight: 950;
-  margin: 0 0.5px;
-  font-size: 0.86rem;
-}
-
-.sinta-badge__brand--prosiding {
-  padding: 5px 7px;
-  color: #334155;
-  background: #f8fafc;
-}
-
-.sinta-badge__rank {
-  padding: 5px 9px;
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-
-/* SINTA 3 - Cyan / Teal / Blue Theme */
-.sinta-badge--s3 .sinta-badge__rank {
-  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-}
-
-/* SINTA 4 - Amber / Orange Theme */
-.sinta-badge--s4 .sinta-badge__rank {
-  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
-}
-
-/* SINTA 5 - Ruby / Crimson Theme */
-.sinta-badge--s5 .sinta-badge__rank {
-  background: linear-gradient(135deg, #be123c 0%, #9f1239 100%);
-}
-
-/* Prosiding Seminar Nasional Theme */
-.sinta-badge--prosiding .sinta-badge__rank {
-  background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
-  font-size: 0.64rem;
-  letter-spacing: 0.06em;
+.official-sinta-badge__svg {
+  display: block;
+  max-width: 168px;
+  height: auto;
 }
 
 .publication-card__badge {
