@@ -977,8 +977,8 @@ function App() {
               </a>
               <a
                 className="button button--ghost hover-lift scholar-hero__cta scholar-hero__cta--download"
-                href="/downloads/status-whatsapp-reihan-hd.jpg"
-                download="Publikasi-Reihan-Mutaqin-HD.jpg"
+                href="/downloads/Publikasi%20Reihan.jpg"
+                download="Publikasi Reihan.jpg"
                 aria-label="Unduh gambar JPG publikasi"
               >
                 <Download size={14} aria-hidden="true" /> JPG

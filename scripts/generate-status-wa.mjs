@@ -462,8 +462,8 @@ async function main() {
     // Wait 1.5s for fonts & images to render cleanly
     await new Promise((r) => setTimeout(r, 1500));
 
-    const outputPath = path.join(downloadsDir, 'status-whatsapp-reihan-hd.jpg');
-    const rootPath = path.join(projectRoot, 'status-whatsapp-reihan-hd.jpg');
+    const outputPath = path.join(downloadsDir, 'Publikasi Reihan.jpg');
+    const rootPath = path.join(projectRoot, 'Publikasi Reihan.jpg');
 
     await page.screenshot({
       path: outputPath,
@@ -474,7 +474,7 @@ async function main() {
 
     fs.copyFileSync(outputPath, rootPath);
 
-    console.log(`\nSUCCESS! WhatsApp Status HD Image generated!`);
+    console.log(`\nSUCCESS! Publikasi Reihan.jpg generated!`);
     console.log(`File: ${outputPath}`);
     console.log(`File: ${rootPath}`);
   } finally {
