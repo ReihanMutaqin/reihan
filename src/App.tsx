@@ -45,6 +45,8 @@ type Publication = {
   authors: string
   link: string
   badge: string
+  sintaLevel?: 3 | 4 | 5
+  isProsiding?: boolean
   accent?: string
 }
 
@@ -332,8 +334,9 @@ const publications: Publication[] = [
       'Pengembangan buku ajar interaktif 3D berbasis Augmented Reality (AR) menggunakan engine Unity dan Vuforia dengan metode Multimedia Development Life Cycle (MDLC) guna meningkatkan pemahaman visual perangkat keras komputer.',
     authors: 'Reihan Mutaqin, dkk.',
     badge: 'Terakreditasi SINTA 3',
+    sintaLevel: 3,
     link: 'http://ejournal.stitpn.ac.id/index.php/islamika/article/view/5466',
-    accent: '#e95d32',
+    accent: '#0284c7',
   },
   {
     title: 'Analisis Penggunaan Chat GPT (AI) dan Modul Pemrograman Terhadap Motivasi Belajar dan Kreativitas Mahasiswa dalam Mata Kuliah Pemrograman',
@@ -344,8 +347,9 @@ const publications: Publication[] = [
       'Penelitian evaluasi dampak integrasi Large Language Model (ChatGPT AI) terhadap motivasi belajar, kreativitas pemecahan masalah algoritma, serta kemandirian eksplorasi coding mahasiswa PTI Universitas Bina Bangsa.',
     authors: 'Reihan Mutaqin, dkk.',
     badge: 'Terakreditasi SINTA 5',
+    sintaLevel: 5,
     link: 'https://www.jurnal.faperta-unras.ac.id/index.php/JS/article/view/214',
-    accent: '#f2c94c',
+    accent: '#be123c',
   },
   {
     title: 'Pelatihan Membuat Media Pembelajaran Berbasis WordPress Menggunakan Plugin H5P',
@@ -356,8 +360,9 @@ const publications: Publication[] = [
       'Pelaksanaan workshop dan pelatihan pembuatan konten pembelajaran interaktif multimedia (kuis digital, video interaktif berbasis H5P) pada CMS WordPress bagi guru dan siswa kejuruan.',
     authors: 'Reihan Mutaqin, dkk.',
     badge: 'Terakreditasi SINTA 4',
+    sintaLevel: 4,
     link: 'https://e-journal.nalanda.ac.id/index.php/jkpu/article/view/883',
-    accent: '#10b981',
+    accent: '#ea580c',
   },
   {
     title: 'Membangun Soft Skill dan Hard Skill Siswa SMK pada Era Digital',
@@ -368,8 +373,9 @@ const publications: Publication[] = [
       'Kajian integrasi kompetensi teknis kejuruan (hard skill) dan kemampuan komunikasi adaptif serta kolaborasi tim (soft skill) untuk meningkatkan kesiapan kerja lulusan SMK di era transformasi digital.',
     authors: 'Beni Junedi, Reihan Mutaqin, Siti Adira Kania, Vani Khusnul Khatimah, Nurul Ainaya Tohariah',
     badge: 'Terakreditasi SINTA 5',
+    sintaLevel: 5,
     link: 'https://jurnal-stiepari.ac.id/index.php/sewagati/article/view/1346',
-    accent: '#7c3aed',
+    accent: '#be123c',
   },
   {
     title: 'Pembuatan Website Pelayanan Pemerintahan Desa Sukalaba: Meningkatkan Kualitas Pelayanan dan Keterbukaan Informasi Bagi Masyarakat',
@@ -380,8 +386,9 @@ const publications: Publication[] = [
       'Perancangan dan implementasi website portal pelayanan administrasi desa guna mendukung transparansi data publik, publikasi agenda desa, serta mempermudah pengajuan permohonan layanan bagi warga.',
     authors: 'Reihan Mutaqin, Abdul Bahits, Ana Regitha Dwi Saputri, Muhamad Nur Fauzan',
     badge: 'Terakreditasi SINTA 5',
+    sintaLevel: 5,
     link: 'https://prin.or.id/index.php/nusantara/article/view/1610',
-    accent: '#0284c7',
+    accent: '#be123c',
   },
   {
     title: 'Pendampingan Pembuatan Peniris Minyak pada Usaha Mikro, Kecil, dan Menengah (UMKM) Jamur Tiram di Desa Sukalaba',
@@ -392,10 +399,41 @@ const publications: Publication[] = [
       'Pemberdayaan dan pendampingan teknologi peniris minyak otomatis untuk meningkatkan higienitas, efisiensi produksi, dan daya saing produk UMKM jamur tiram lokal.',
     authors: 'Reihan Mutaqin, dkk.',
     badge: 'Prosiding Seminar Nasional',
+    isProsiding: true,
     link: 'https://conferences.lppmbinabangsa.ac.id/index.php/seumpama/article/view/44',
-    accent: '#e95d32',
+    accent: '#475569',
   },
 ]
+
+function SintaBadge({ level }: { level: 3 | 4 | 5 }) {
+  const rankMap = {
+    3: { code: 'S3', label: 'SINTA 3', cls: 'sinta-badge--s3' },
+    4: { code: 'S4', label: 'SINTA 4', cls: 'sinta-badge--s4' },
+    5: { code: 'S5', label: 'SINTA 5', cls: 'sinta-badge--s5' },
+  }[level]
+
+  return (
+    <div className={`sinta-badge ${rankMap.cls}`} title={`Terakreditasi ${rankMap.label} Kemdiktisaintek RI`}>
+      <span className="sinta-badge__brand">
+        <span className="sinta-badge__s">s</span>
+        <span className="sinta-badge__i">!</span>
+        <span className="sinta-badge__nta">nta</span>
+      </span>
+      <span className="sinta-badge__rank">{rankMap.code}</span>
+    </div>
+  )
+}
+
+function ProsidingBadge({ label = 'Prosiding Seminar Nasional' }: { label?: string }) {
+  return (
+    <div className="sinta-badge sinta-badge--prosiding" title={label}>
+      <span className="sinta-badge__brand sinta-badge__brand--prosiding">
+        <BookOpen size={13} aria-hidden="true" />
+      </span>
+      <span className="sinta-badge__rank">PROSIDING</span>
+    </div>
+  )
+}
 
 function SectionHeading({ number, eyebrow, title }: { number: string; eyebrow: string; title: string }) {
   return (
@@ -952,7 +990,13 @@ function App() {
                 }
               >
                 <div className="publication-card__header">
-                  <span className="publication-card__badge">{pub.badge}</span>
+                  {pub.sintaLevel ? (
+                    <SintaBadge level={pub.sintaLevel} />
+                  ) : pub.isProsiding ? (
+                    <ProsidingBadge label={pub.badge} />
+                  ) : (
+                    <span className="publication-card__badge">{pub.badge}</span>
+                  )}
                   <span className="publication-card__year">{pub.year}</span>
                 </div>
                 <h3 className="publication-card__title">{pub.title}</h3>
