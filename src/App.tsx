@@ -977,11 +977,11 @@ function App() {
               </a>
               <a
                 className="button button--ghost hover-lift scholar-hero__cta scholar-hero__cta--download"
-                href="/downloads/publikasi-reihan-hd.jpg"
-                download="Publikasi-Reihan-Mutaqin-HD.jpg"
-                aria-label="Unduh gambar HD publikasi jurnal"
+                href="/downloads/status-whatsapp-reihan-hd.jpg"
+                download="Status-WA-Publikasi-Reihan-Mutaqin.jpg"
+                aria-label="Unduh gambar poster WhatsApp Status publikasi jurnal"
               >
-                Unduh HD (JPG)
+                Unduh Status WA (JPG)
               </a>
             </div>
           </div>
