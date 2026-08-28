@@ -331,7 +331,7 @@ const publications: Publication[] = [
     description:
       'Pengembangan buku ajar interaktif 3D berbasis Augmented Reality (AR) menggunakan engine Unity dan Vuforia dengan metode Multimedia Development Life Cycle (MDLC) guna meningkatkan pemahaman siswa pada mata pelajaran Informatika.',
     authors: 'Reihan Mutaqin, dkk.',
-    badge: 'Jurnal Nasional Terindeks',
+    badge: 'Terakreditasi SINTA 3',
     link: 'https://scholar.google.com/citations?user=ZcbqktkAAAAJ&hl=id',
     accent: '#e95d32',
   },
@@ -343,7 +343,7 @@ const publications: Publication[] = [
     description:
       'Penelitian evaluasi dampak integrasi Large Language Model (ChatGPT AI) terhadap motivasi belajar, kreativitas pemecahan masalah algoritma, serta kemandirian eksplorasi coding mahasiswa program studi Pendidikan Teknologi Informasi.',
     authors: 'Reihan Mutaqin, dkk.',
-    badge: 'Peer-Reviewed Journal',
+    badge: 'Terakreditasi SINTA 5',
     link: 'https://scholar.google.com/citations?user=ZcbqktkAAAAJ&hl=id',
     accent: '#f2c94c',
   },
@@ -361,13 +361,13 @@ const publications: Publication[] = [
   },
   {
     title: 'Pelatihan Pembuatan Media Pembelajaran Berbasis WordPress Menggunakan Plugin H5P',
-    journal: 'SEWAGATI / Jurnal Pengabdian Masyarakat Indonesia',
+    journal: 'SEWAGATI: Jurnal Pengabdian Masyarakat Indonesia',
     year: '2024',
     category: 'Pengabdian Masyarakat & Edukasi',
     description:
       'Pemberdayaan guru dan siswa jurusan TJKT di SMKN 1 Pandeglang melalui pelatihan pembuatan konten pembelajaran interaktif multimedia (kuis interaktif, modul digital, video berbasis H5P) pada CMS WordPress.',
     authors: 'Reihan Mutaqin, dkk.',
-    badge: 'Pengabdian Masyarakat (PkM)',
+    badge: 'Terakreditasi SINTA 5',
     link: 'https://scholar.google.com/citations?user=ZcbqktkAAAAJ&hl=id',
     accent: '#10b981',
   },
@@ -379,7 +379,7 @@ const publications: Publication[] = [
     description:
       'Strategi integrasi kompetensi teknis kejuruan (hard skill) dan kemampuan komunikasi adaptif serta kolaborasi tim (soft skill) untuk meningkatkan kesiapan kerja lulusan SMK di era transformasi digital.',
     authors: 'Reihan Mutaqin, dkk.',
-    badge: 'Pengabdian Masyarakat (PkM)',
+    badge: 'Terakreditasi SINTA 5',
     link: 'https://scholar.google.com/citations?user=ZcbqktkAAAAJ&hl=id',
     accent: '#7c3aed',
   },
@@ -391,7 +391,7 @@ const publications: Publication[] = [
     description:
       'Perancangan dan implementasi website portal pelayanan administrasi desa guna mendukung transparansi data publik, publikasi agenda desa, serta mempermudah pengajuan permohonan layanan bagi warga.',
     authors: 'Reihan Mutaqin, dkk.',
-    badge: 'Publikasi Pengabdian',
+    badge: 'Terakreditasi SINTA 5',
     link: 'https://scholar.google.com/citations?user=ZcbqktkAAAAJ&hl=id',
     accent: '#0284c7',
   },

@@ -992,13 +992,13 @@ ul {
 .publication-card__badge {
   display: inline-block;
   padding: 4px 10px;
-  background: rgba(21, 21, 21, 0.06);
-  border: 1px solid var(--line);
+  background: var(--ink);
+  border: 1px solid var(--ink);
   font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: #fff;
 }
 
 .publication-card__year {
