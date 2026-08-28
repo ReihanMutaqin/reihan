@@ -351,7 +351,7 @@ const projectSlideData = [
     slideNum: 11,
     subtitle: 'Digital Invitation & Web CMS Portal',
     projects: [
-      { img: 'shevaangel.png', year: '2026', cat: 'Digital Invitation', title: 'The Wedding of Sheva & Angel', desc: 'Platform undangan pernikahan digital interaktif dan responsif dengan buku tamu digital, amplop digital/rekening, reservasi kehadiran, background music, dan animasi interaktif.', tags: ['Digital Invitation', 'Interactive Web', 'UI/UX', 'Animation'], link: 'shevaangel.vercel.app' },
+      { img: 'shevaangel.png', year: '2026', cat: 'Digital Invitation', title: 'Website Undangan Digital', desc: 'Platform undangan digital interaktif dan responsif dengan buku tamu digital, amplop digital/rekening, reservasi kehadiran, background music, dan animasi interaktif.', tags: ['Digital Invitation', 'Interactive Web', 'UI/UX', 'Animation'], link: 'shevaangel.vercel.app' },
       { img: '42-berita-kita.png', year: '2024', cat: 'Portal Berita', title: '42 Berita Kita', desc: 'Portal berita web responsif dengan manajemen konten dinamis, sistem kategori multi-level, panel administrasi redaksi, dan integrasi database untuk publikasi artikel real-time.', tags: ['Web Fullstack', 'PHP / MySQL', 'CMS Dashboard', 'SEO Friendly'], link: 'berita.42web.io' }
     ]
   }

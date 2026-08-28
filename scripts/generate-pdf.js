@@ -1008,17 +1008,17 @@ const htmlContent = `<!DOCTYPE html>
         </div>
       </div>
 
-      <!-- Proyek 8: Sheva & Angel -->
+      <!-- Proyek 8: Website Undangan Digital -->
       <div class="project-card">
         <div class="project-image-wrap">
-          <img src="${imgSheva}" alt="The Wedding of Sheva and Angel">
+          <img src="${imgSheva}" alt="Website Undangan Digital">
           <span class="project-category-badge">Digital Invitation</span>
           <span class="project-year-badge">2026</span>
         </div>
         <div class="project-body">
-          <div class="project-title">The Wedding of Sheva & Angel</div>
+          <div class="project-title">Website Undangan Digital</div>
           <div class="project-desc">
-            Platform undangan pernikahan digital interaktif dan responsif dengan buku tamu digital, amplop digital/rekening, reservasi kehadiran, background music, dan animasi interaktif.
+            Platform undangan digital interaktif dan responsif dengan buku tamu digital, amplop digital/rekening, reservasi kehadiran (RSVP), background music, dan animasi interaktif.
           </div>
           <div class="project-footer-row">
             <div class="project-tech">

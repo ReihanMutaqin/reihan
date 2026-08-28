@@ -152,11 +152,11 @@ const projects: Project[] = [
     link: 'https://hr.reihan.online/',
   },
   {
-    title: 'The Wedding of Sheva & Angel',
+    title: 'Website Undangan Digital',
     year: '2026',
     category: 'Digital Invitation Platform',
     description:
-      'Platform undangan pernikahan digital interaktif dan responsif dengan buku tamu digital, amplop digital/rekening, reservasi kehadiran, background music, dan animasi interaktif.',
+      'Platform undangan digital interaktif dan responsif dengan buku tamu digital, amplop digital/rekening, reservasi kehadiran (RSVP), background music, dan animasi interaktif.',
     tags: ['Web', 'UI/UX', 'Digital Invitation', 'Interactive'],
     image: '/images/shevaangel.png',
     accent: '#c49b66',
