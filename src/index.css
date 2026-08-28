@@ -951,8 +951,27 @@ ul {
   text-transform: uppercase;
 }
 
+.scholar-hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 821px) {
+  .scholar-hero__actions {
+    align-items: flex-end;
+  }
+}
+
 .scholar-hero__cta {
   flex-shrink: 0;
+  text-align: center;
+}
+
+.scholar-hero__cta--download {
+  font-size: 0.8rem;
+  padding: 10px 16px;
 }
 
 .publications-grid {

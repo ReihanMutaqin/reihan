@@ -965,15 +965,25 @@ function App() {
                 </div>
               </div>
             </div>
-            <a
-              className="button button--dark hover-lift scholar-hero__cta"
-              href="https://scholar.google.com/citations?user=ZcbqktkAAAAJ&hl=id"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Buka profil Google Scholar Reihan Mutaqin"
-            >
-              Lihat Google Scholar <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
+            <div className="scholar-hero__actions">
+              <a
+                className="button button--dark hover-lift scholar-hero__cta"
+                href="https://scholar.google.com/citations?user=ZcbqktkAAAAJ&hl=id"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Buka profil Google Scholar Reihan Mutaqin"
+              >
+                Lihat Google Scholar <ArrowUpRight size={16} aria-hidden="true" />
+              </a>
+              <a
+                className="button button--ghost hover-lift scholar-hero__cta scholar-hero__cta--download"
+                href="/downloads/publikasi-reihan-hd.jpg"
+                download="Publikasi-Reihan-Mutaqin-HD.jpg"
+                aria-label="Unduh gambar HD publikasi jurnal"
+              >
+                Unduh HD (JPG)
+              </a>
+            </div>
           </div>
 
           <div className="publications-grid">
