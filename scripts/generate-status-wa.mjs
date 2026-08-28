@@ -328,7 +328,7 @@ const htmlContent = `<!DOCTYPE html>
     <!-- Header Scholar Box -->
     <div class="header-banner">
       <div class="header-badge">
-        🎓 Google Scholar Profile & Publications
+        GOOGLE SCHOLAR PROFILE & PUBLICATIONS
       </div>
       <div class="profile-row">
         <div class="profile-info">
@@ -369,7 +369,7 @@ const htmlContent = `<!DOCTYPE html>
           <span class="card-year">2025</span>
         </div>
         <h3 class="card-title">Perancangan Augmented Reality (AR) Book Dasar Komputer pada Mata Pelajaran Informatika Kelas X TJKT 2 di SMK Negeri 1 Pandeglang</h3>
-        <p class="card-journal">📖 ISLAMIKA: Jurnal Keislaman dan Ilmu Pendidikan</p>
+        <p class="card-journal">ISLAMIKA: Jurnal Keislaman dan Ilmu Pendidikan</p>
         <span class="card-author">Penulis: Reihan Mutaqin, dkk.</span>
       </div>
 
@@ -380,7 +380,7 @@ const htmlContent = `<!DOCTYPE html>
           <span class="card-year">2024</span>
         </div>
         <h3 class="card-title">Analisis Penggunaan Chat GPT (AI) dan Modul Pemrograman Terhadap Motivasi Belajar dan Kreativitas Mahasiswa dalam Mata Kuliah Pemrograman</h3>
-        <p class="card-journal">📖 Jurnal Saintifik (Multi Science Journal) · UNRAS</p>
+        <p class="card-journal">Jurnal Saintifik (Multi Science Journal) · UNRAS</p>
         <span class="card-author">Penulis: Reihan Mutaqin, dkk.</span>
       </div>
 
@@ -391,7 +391,7 @@ const htmlContent = `<!DOCTYPE html>
           <span class="card-year">2024</span>
         </div>
         <h3 class="card-title">Pelatihan Membuat Media Pembelajaran Berbasis WordPress Menggunakan Plugin H5P</h3>
-        <p class="card-journal">📖 JKPU: Jurnal Kajian dan Penelitian Umum · Institut Nalanda</p>
+        <p class="card-journal">JKPU: Jurnal Kajian dan Penelitian Umum · Institut Nalanda</p>
         <span class="card-author">Penulis: Reihan Mutaqin, dkk.</span>
       </div>
 
@@ -402,7 +402,7 @@ const htmlContent = `<!DOCTYPE html>
           <span class="card-year">2024</span>
         </div>
         <h3 class="card-title">Membangun Soft Skill dan Hard Skill Siswa SMK pada Era Digital</h3>
-        <p class="card-journal">📖 SEWAGATI: Jurnal Pengabdian Masyarakat Indonesia</p>
+        <p class="card-journal">SEWAGATI: Jurnal Pengabdian Masyarakat Indonesia</p>
         <span class="card-author">Penulis: Beni Junedi, Reihan Mutaqin, Siti Adira Kania, dkk.</span>
       </div>
 
@@ -413,18 +413,18 @@ const htmlContent = `<!DOCTYPE html>
           <span class="card-year">2023</span>
         </div>
         <h3 class="card-title">Pembuatan Website Pelayanan Pemerintahan Desa Sukalaba: Meningkatkan Kualitas Pelayanan dan Keterbukaan Informasi Bagi Masyarakat</h3>
-        <p class="card-journal">📖 Nusantara: Jurnal Pengabdian Kepada Masyarakat</p>
+        <p class="card-journal">Nusantara: Jurnal Pengabdian Kepada Masyarakat</p>
         <span class="card-author">Penulis: Reihan Mutaqin, Abdul Bahits, Ana Regitha D. S., Muhamad Nur F.</span>
       </div>
 
       <!-- 6. SEUMPAMA (Prosiding Nasional) -->
       <div class="card card--prosiding">
         <div class="card-top">
-          <div class="prosiding-tag">🏛️ PROSIDING SEMINAR NASIONAL</div>
+          <div class="prosiding-tag">PROSIDING SEMINAR NASIONAL</div>
           <span class="card-year">2023</span>
         </div>
         <h3 class="card-title">Pendampingan Pembuatan Peniris Minyak pada Usaha Mikro, Kecil, dan Menengah (UMKM) Jamur Tiram di Desa Sukalaba</h3>
-        <p class="card-journal">📖 Prosiding Seminar Umum Pengabdian kepada Masyarakat (SEUMPAMA) · LPPM UNIBA</p>
+        <p class="card-journal">Prosiding Seminar Umum Pengabdian kepada Masyarakat (SEUMPAMA) · LPPM UNIBA</p>
         <span class="card-author">Penulis: Reihan Mutaqin, dkk.</span>
       </div>
 
@@ -433,7 +433,7 @@ const htmlContent = `<!DOCTYPE html>
     <!-- Footer Bar -->
     <div class="footer-bar">
       <span class="footer-brand">REIHAN MUTAQIN · PORTOFOLIO & RISET</span>
-      <span class="footer-url">🌐 reihan.online/</span>
+      <span class="footer-url">reihan.online/</span>
     </div>
 
   </div>

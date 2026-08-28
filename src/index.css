@@ -953,14 +953,16 @@ ul {
 
 .scholar-hero__actions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   gap: 10px;
   flex-shrink: 0;
+  flex-wrap: wrap;
 }
 
 @media (min-width: 821px) {
   .scholar-hero__actions {
-    align-items: flex-end;
+    justify-content: flex-end;
   }
 }
 
@@ -970,8 +972,24 @@ ul {
 }
 
 .scholar-hero__cta--download {
-  font-size: 0.8rem;
-  padding: 10px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 12px 18px;
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  box-shadow: 2.5px 2.5px 0 var(--ink);
+}
+
+.scholar-hero__cta--download:hover {
+  background: var(--ink);
+  color: #ffffff;
+  box-shadow: 3.5px 3.5px 0 var(--ink);
 }
 
 .publications-grid {

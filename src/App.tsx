@@ -978,10 +978,10 @@ function App() {
               <a
                 className="button button--ghost hover-lift scholar-hero__cta scholar-hero__cta--download"
                 href="/downloads/status-whatsapp-reihan-hd.jpg"
-                download="Status-WA-Publikasi-Reihan-Mutaqin.jpg"
-                aria-label="Unduh gambar poster WhatsApp Status publikasi jurnal"
+                download="Publikasi-Reihan-Mutaqin-HD.jpg"
+                aria-label="Unduh gambar JPG publikasi"
               >
-                Unduh Status WA (JPG)
+                <Download size={14} aria-hidden="true" /> JPG
               </a>
             </div>
           </div>
